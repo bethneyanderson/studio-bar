@@ -1,1 +1,1 @@
-web: gunicorn studio-bar.wsgi
+web: gunicorn config.wsgi
