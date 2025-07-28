@@ -85,6 +85,24 @@ footer p {
     color: #ccc;
 }
 
+/* Social links styling */
+.social-links a {
+    color: #dc3545 !important; /* Matching red color */
+    font-size: 1.5rem;
+    margin-right: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ff4757 !important; /* Bright red on hover */
+}
+
+.social-links h3 {
+    color: white;
+    margin-bottom: 15px;
+}
+
 /* Navbar styling */
 .navbar {
     background-color: black !important;
