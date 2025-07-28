@@ -1,5 +1,88 @@
 body {
     background-color: black;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Home page hero section */
+.home-hero {
+    background-image: url('../images/mic.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    font-family: 'Rye', cursive;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Custom button with no background or outline */
+.btn-custom {
+    background: none !important;
+    border: none !important;
+    color: white !important; 
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-custom:hover {
+    color: #dc3545 !important; /* Red on hover */
+    text-decoration: underline;
+    background: none !important;
+    border: none !important;
+}
+
+/* Alternative custom button for Join Us */
+.btn-custom-alt {
+    background: none !important;
+    border: none !important;
+    color: white !important; 
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-custom-alt:hover {
+    color: #dc3545 !important; /* Red on hover */
+    text-decoration: underline;
+    background: none !important;
+    border: none !important;
+}
+
+/* Vertical separator line between buttons */
+.button-separator {
+    width: 1px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 0 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Main content area should grow to push footer down */
+.container {
+    flex: 1;
+}
+
+/* Footer styling */
+footer {
+    background-color: black !important;
+    border-top: 1px solid #333;
+    margin-top: auto;
+}
+
+footer h5 {
+    color: white;
+    font-weight: bold;
+}
+
+footer p {
+    color: #ccc;
 }
 
 /* Navbar styling */
@@ -21,6 +104,6 @@ body {
 }
 
 .navbar-nav .nav-link.active {
-    color: white !important;
+    color: #dc3545 !important; /* Bootstrap red color */
     font-weight: bold;
 }

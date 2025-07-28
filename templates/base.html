@@ -1,13 +1,21 @@
 {% load static %} 
 {% url 'home' as home_url %} 
+{% url 'events' as events_url %} 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a3ffa70fd5.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ewert&family=Rye&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 </head>
 <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -24,7 +32,7 @@
                             href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{% url 'events' %}">Events</a>
+                        <a class="nav-link text-white {% if '/events' in request.path %}active{% endif %}" href="{% url 'events' %}">Events</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
@@ -37,10 +45,10 @@
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{% url 'register' %}">Register</a>
+                            <a class="nav-link text-white {% if '/register' in request.path %}active{% endif %}" href="{% url 'register' %}">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{% url 'login' %}">Log in</a>
+                            <a class="nav-link text-white {% if '/login' in request.path %}active{% endif %}" href="{% url 'login' %}">Log in</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -50,6 +58,21 @@
 
     {% block content %}
     {% endblock %}
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>STUDIO BAR</h5>
+                    <p class="mb-0">Your premier destination for live music and entertainment.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">&copy; 2025 Studio Bar. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </body>
