@@ -1,6 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 from .views import home_page_view
 
+
+
 urlpatterns = [
-    path('', home_page_view),
+    path('', home_page_view, name='home'),
+    path('summernote/', include('django_summernote.urls')),
+
 ]
