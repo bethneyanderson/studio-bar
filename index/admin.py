@@ -10,8 +10,16 @@ class ArtistAdmin(admin.ModelAdmin):
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('title', 'date', 'venue_name', 'artist')
+    list_display = ('title', 'date', 'venue_name', 'artist', 'image')
     search_fields = ('title', 'venue_name')
     list_filter = ('date', 'artist')
+    readonly_fields = ('image_preview',)
+    
+    def image_preview(self, obj):
+        if obj.image:
+            return f'<img src="{obj.image.url}" style="max-height: 100px;">'
+        return "No image"
+    image_preview.allow_tags = True
+    image_preview.short_description = 'Image Preview'
 
 

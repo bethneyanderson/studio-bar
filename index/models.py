@@ -18,6 +18,7 @@ class Event(models.Model):
     description = models.TextField()
     venue_name = models.CharField(max_length=200)
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='events')
+    image = models.ImageField(upload_to='events/', blank=True, null=True, help_text='Event poster or promotional image')
 
     def __str__(self):
         return f"{self.title} ({self.date.strftime('%Y-%m-%d')})"
