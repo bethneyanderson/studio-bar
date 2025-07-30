@@ -274,6 +274,13 @@ a:hover .event-card .card-title {
     transition: color 0.3s ease;
 }
 
-.about-content a:hover {
-    color: #ff4757 !important;
+
+
+/* About page images */
+.about-image {
+    transition: all 0.3s ease;
+    min-height: 300px;
+    width: 100%;
+    object-fit: cover;
 }
+
