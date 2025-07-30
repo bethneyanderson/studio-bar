@@ -51,7 +51,15 @@
                                 </div>
                                 <p class="card-text text-white">{{ event.description|truncatewords:15 }}</p>
                                 <p class="card-text text-white"><strong>Artist:</strong> {{ event.artist.name }}</p>
-                                <p class="card-text text-white"><strong>Venue:</strong> {{ event.venue_name }}</p>
+                                
+                                <!-- Venue and Book Tickets button aligned -->
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <p class="card-text text-white mb-0"><strong>Venue:</strong> {{ event.venue_name }}</p>
+                                    <button class="btn btn-danger btn-sm book-tickets-btn" onclick="event.stopPropagation(); event.preventDefault(); alert('Ticket booking coming soon!');">
+                                        <i class="fas fa-ticket-alt"></i> Book Tickets
+                                    </button>
+                                </div>
+                                
                                 <p class="card-text"><small class="text-muted">Date: {{ event.date|date:"F d, Y" }} at {{ event.date|time:"g:i A" }}</small></p>
                             </div>
                         </div>
