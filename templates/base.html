@@ -35,6 +35,11 @@
                     <li class="nav-item">
                         <a class="nav-link text-white {% if '/events' in request.path %}active{% endif %}" href="{% url 'events' %}">Events</a>
                     </li>
+                    {% if user.is_staff %}
+                        <li class="nav-item">
+                            <a class="nav-link text-white {% if '/artists' in request.path %}active{% endif %}" href="{% url 'artists_list' %}">Artists</a>
+                        </li>
+                    {% endif %}
                 </ul>
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}

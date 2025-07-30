@@ -3,6 +3,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: 'Rye', cursive;
 }
 
 /* Home page hero section */
@@ -25,6 +26,7 @@ body {
 /* Info section styling */
 .info-section {
     padding: 20px 0;
+    font-family: 'Rye', cursive;
 }
 
 .info-section p {
@@ -44,6 +46,7 @@ body {
 .subscribe-section {
     padding: 60px 20px;;
     border-radius: 10px;
+    font-family: 'Rye', cursive;
 }
 
 .subscribe-section h3 {
@@ -172,6 +175,7 @@ footer p {
 /* Navbar styling */
 .navbar {
     background-color: black !important;
+    font-family: 'Rye', cursive !important;
 }
 
 .navbar-brand,
