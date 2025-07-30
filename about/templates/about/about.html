@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h1 class="text-white text-center mb-5">About Studio Bar</h1>
+            
+            <div class="about-content">
+                <div class="mb-5">
+                    <h3 class="text-white mb-3">Our Story</h3>
+                    <p class="text-white lead">
+                        Studio Bar is Penzance's premier live music venue, bringing together the best local and touring artists 
+                        in an intimate setting that celebrates the power of live performance.
+                    </p>
+                    <p class="text-white">
+                        Located in the heart of Penzance at 71 Bread St, our venue has been a cornerstone of the local music 
+                        scene, providing a platform for emerging artists and established acts alike. From indie rock to jazz, 
+                        electronic to folk, we showcase diverse musical genres that reflect the vibrant cultural landscape of Cornwall.
+                    </p>
+                </div>
+                
+                <div class="mb-5">
+                    <h3 class="text-white mb-3">Our Mission</h3>
+                    <p class="text-white">
+                        We believe in the transformative power of live music. Our mission is to create unforgettable experiences 
+                        that connect artists with audiences in meaningful ways. Studio Bar is more than just a venue – 
+                        it's a community space where music lovers gather to discover new sounds and celebrate established favorites.
+                    </p>
+                </div>
+                
+                <div class="mb-5">
+                    <h3 class="text-white mb-3">The Space</h3>
+                    <p class="text-white">
+                        Our intimate venue features state-of-the-art sound equipment and lighting, ensuring every performance 
+                        sounds and looks incredible. With a capacity that allows for up-close and personal shows, every seat 
+                        in the house offers an exceptional view of the stage.
+                    </p>
+                    <ul class="text-white">
+                        <li>Professional sound system and lighting</li>
+                        <li>Intimate setting for memorable performances</li>
+                        <li>Full bar with carefully curated drinks menu</li>
+                        <li>Accessible facilities</li>
+                        <li>Located in the heart of Penzance</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-5">
+                    <h3 class="text-white mb-3">Programming & Production</h3>
+                    <p class="text-white">
+                        Studio Bar is programmed and produced by LNZRT, ensuring a carefully curated selection of artists 
+                        and events that maintain the highest standards of quality and artistic integrity.
+                    </p>
+                </div>
+                
+                <div class="mb-5">
+                    <h3 class="text-white mb-3">Community & Partnerships</h3>
+                    <p class="text-white">
+                        We're proud to support local initiatives and festivals, including our partnership with the 
+                        <a href="https://golowanfestival.org/" class="text-decoration-none" style="color: #dc3545;">Golowan Festival</a>.
+                        We also participate in community programs and support emerging artists through our platform.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <h3 class="text-white mb-3">Visit Us</h3>
+                    <p class="text-white mb-3">
+                        <strong>Address:</strong><br>
+                        71 Bread St<br>
+                        Penzance TR18 2EQ
+                    </p>
+                    <p class="text-white mb-3">
+                        <strong>Opening Hours:</strong><br>
+                        Monday – Thursday: 5pm – 12am<br>
+                        Friday & Saturday: 5pm - 3am<br>
+                        Sunday: 3pm - 11pm<br>
+                        <small class="text-muted">*(All times subject to change)</small>
+                    </p>
+                    <p class="text-white mb-4">
+                        <strong>Contact:</strong><br>
+                        <a href="mailto:info@studiobar.com" class="text-decoration-none" style="color: #dc3545;">info@studiobar.com</a>
+                    </p>
+                    
+                    <div class="mt-4">
+                        <a href="{% url 'events' %}" class="btn btn-danger btn-lg me-3">
+                            <i class="fas fa-calendar"></i> View Upcoming Events
+                        </a>
+                        <a href="{% url 'home' %}" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-home"></i> Back to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

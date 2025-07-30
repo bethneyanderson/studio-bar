@@ -32,7 +32,7 @@
                     <a href="{% url 'event_detail' event.id %}" class="text-decoration-none">
                         <div class="card bg-dark text-white h-100 event-card">
                             {% if event.image %}
-                                <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}" style="height: 250px; object-fit: cover;">
+                                <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}" style="width: 100%; height: auto; max-height: 600px; object-fit: cover;">
                             {% endif %}
                             <div class="card-body">
                                 <h5 class="card-title text-white">{{ event.title }}</h5>
