@@ -42,10 +42,8 @@ body {
 
 /* Subscribe section styling */
 .subscribe-section {
-    padding: 40px 20px;
-    background-color: rgba(33, 37, 41, 0.3);
+    padding: 60px 20px;;
     border-radius: 10px;
-    border: 1px solid #333;
 }
 
 .subscribe-section h3 {

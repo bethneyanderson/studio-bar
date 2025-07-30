@@ -35,27 +35,14 @@
                                 <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}" style="height: 250px; object-fit: cover;">
                             {% endif %}
                             <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <h5 class="card-title text-white">{{ event.title }}</h5>
-                                    {% if user.is_staff %}
-                                        <div class="dropdown" onclick="event.stopPropagation(); event.preventDefault();">
-                                            <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                                Actions
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="{% url 'update_event' event.id %}">Edit</a></li>
-                                                <li><a class="dropdown-item text-danger" href="{% url 'delete_event' event.id %}">Delete</a></li>
-                                            </ul>
-                                        </div>
-                                    {% endif %}
-                                </div>
+                                <h5 class="card-title text-white">{{ event.title }}</h5>
                                 <p class="card-text text-white">{{ event.description|truncatewords:15 }}</p>
                                 <p class="card-text text-white"><strong>Artist:</strong> {{ event.artist.name }}</p>
                                 
                                 <!-- Venue and Book Tickets button aligned -->
                                 <div class="d-flex justify-content-between align-items-center mb-2">
                                     <p class="card-text text-white mb-0"><strong>Venue:</strong> {{ event.venue_name }}</p>
-                                    <button class="btn btn-danger btn-sm book-tickets-btn" onclick="event.stopPropagation(); event.preventDefault(); alert('Ticket booking coming soon!');">
+                                    <button class="btn btn-danger btn-sm book-tickets-btn">
                                         <i class="fas fa-ticket-alt"></i> Book Tickets
                                     </button>
                                 </div>
