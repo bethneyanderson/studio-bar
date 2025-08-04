@@ -1,46 +1,66 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card bg-dark text-white">
-                <div class="card-header text-center">
-                    <h3>Welcome Back</h3>
-                    <p class="mb-0">Sign in to your Studio Bar account</p>
-                </div>
-                <div class="card-body">
-                    {% if form.errors %}
-                        <div class="alert alert-danger" role="alert">
-                            <strong>Login failed.</strong> Please check your username and password.
-                        </div>
-                    {% endif %}
-                    
-                    <form method="post">
-                        {% csrf_token %}
-                        
-                        <div class="mb-3">
-                            <label for="{{ form.username.id_for_label }}" class="form-label">Username</label>
-                            <input type="text" class="form-control" name="username" placeholder="Username" required>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="{{ form.password.id_for_label }}" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password" placeholder="Password" required>
-                        </div>
-                        
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
-                        </div>
-                    </form>
-                    
-                    <hr class="my-4">
-                    <div class="text-center">
-                        <p class="mb-0">Don't have an account? <a href="{% url 'register' %}" class="text-light">Register here</a></p>
-                    </div>
-                </div>
-            </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card bg-dark text-white">
+        <div class="card-header text-center">
+          <h3>Welcome Back</h3>
+          <p class="mb-0">Sign in to your Studio Bar account</p>
         </div>
+        <div class="card-body">
+          {% if form.errors %}
+          <div class="alert alert-danger" role="alert">
+            <strong>Login failed.</strong> Please check your username and
+            password.
+          </div>
+          {% endif %}
+
+          <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label for="{{ form.username.id_for_label }}" class="form-label"
+                >Username</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                name="username"
+                placeholder="Username"
+                required />
+            </div>
+
+            <div class="mb-3">
+              <label for="{{ form.password.id_for_label }}" class="form-label"
+                >Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                placeholder="Password"
+                required />
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-danger btn-lg">
+                Sign In
+              </button>
+            </div>
+          </form>
+
+          <hr class="my-4" />
+          <div class="text-center">
+            <p class="mb-0">
+              Don't have an account?
+              <a href="{% url 'register' %}" class="text-light"
+                >Register here</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock %}

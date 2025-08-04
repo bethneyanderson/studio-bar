@@ -1,78 +1,102 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="home-hero">
-    <div class="container mt-4">
-        <div class="hero-content">
-            <h1 class="text-white display-4 fw-bold mb-4">Studio Bar</h1>
-            
-            <div class="mt-4 d-flex align-items-center justify-content-center">
-                <a href="{% url 'events' %}" class="btn btn-custom btn-lg">View Events</a>
-                {% if not user.is_authenticated %}
-                    <div class="button-separator"></div>
-                    <a href="{% url 'register' %}" class="btn btn-custom-alt btn-lg">Join Us</a>
-                {% endif %}
-            </div>
-        </div>
+  <div class="container mt-4">
+    <div class="hero-content">
+      <h1 class="text-white display-4 fw-bold mb-4">Studio Bar</h1>
+
+      <div class="mt-4 d-flex align-items-center justify-content-center">
+        <a href="{% url 'events' %}" class="btn btn-custom btn-lg"
+          >View Events</a
+        >
+        {% if not user.is_authenticated %}
+        <div class="button-separator"></div>
+        <a href="{% url 'register' %}" class="btn btn-custom-alt btn-lg"
+          >Join Us</a
+        >
+        {% endif %}
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- Information section under hero -->
 <div class="container my-5">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="info-section">
-                <p class="text-white mb-3">71 Bread St, Penzance TR18 2EQ<br>
-                info@studiobar.com</p>
-                
-                <p class="text-white mb-3">Studio Bar is programmed and produced by LNZRT</p>
-                
-                <p class="text-white mb-0">
-                    <a href="#" class="text-decoration-none" style="color: #dc3545;">Work With Us</a>
-                </p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div style="text-align: right;"class="info-section">
-                <p class="text-white mb-3">
-                    Monday – Thursday: 5pm – 12am<br>
-                    Friday & Saturday : 5pm - 3am<br>
-                    Sunday : 3pm - 11pm<br>
-                    <small class="text-white">*(All times subject to change)</small>
-                </p>
-                
-                <p class="text-white mb-2">
-                    <a href="#" class="text-decoration-none" style="color: #dc3545;">Accessibility</a>
-                </p>
-                <p class="text-white mb-2">
-                    <a href="#" class="text-decoration-none" style="color: #dc3545;">This Must Be For Your Community Fund</a>
-                </p>
-                <p class="text-white mb-0">
-                    <a href="https://golowanfestival.org/" class="text-decoration-none" style="color: #dc3545;">Golowan Festival</a>
-                </p>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="info-section">
+        <p class="text-white mb-3">
+          71 Bread St, Penzance TR18 2EQ<br />
+          info@studiobar.com
+        </p>
+
+        <p class="text-white mb-3">
+          Studio Bar is programmed and produced by LNZRT
+        </p>
+
+        <p class="text-white mb-0">
+          <a href="#" class="text-decoration-none" style="color: #dc3545"
+            >Work With Us</a
+          >
+        </p>
+      </div>
     </div>
+    <div class="col-md-6">
+      <div style="text-align: right" class="info-section">
+        <p class="text-white mb-3">
+          Monday – Thursday: 5pm – 12am<br />
+          Friday & Saturday : 5pm - 3am<br />
+          Sunday : 3pm - 11pm<br />
+          <small class="text-white">*(All times subject to change)</small>
+        </p>
+
+        <p class="text-white mb-2">
+          <a href="#" class="text-decoration-none" style="color: #dc3545"
+            >Accessibility</a
+          >
+        </p>
+        <p class="text-white mb-2">
+          <a href="#" class="text-decoration-none" style="color: #dc3545"
+            >This Must Be For Your Community Fund</a
+          >
+        </p>
+        <p class="text-white mb-0">
+          <a
+            href="https://golowanfestival.org/"
+            class="text-decoration-none"
+            style="color: #dc3545"
+            >Golowan Festival</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Subscribe form section -->
 <div class="container mt-1 mb-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
-            <div class="subscribe-section text-center">
-                <h3 class="text-white mb-3">Subscribe</h3>
-                <p class="text-white mb-4">Sign up to the Studio Bar newsletter for weekly news and first release tickets.</p>
-                
-                <form class="subscribe-form">
-                    <div class="d-flex gap-2 mb-3">
-                        <input type="email" class="form-control flex-grow-1" placeholder="email address" required>
-                        <button type="submit" class="btn btn-danger subscribe-btn">Sign Up</button>
-                    </div>
-                </form>
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="subscribe-section text-center">
+        <h3 class="text-white mb-3">Subscribe</h3>
+        <p class="text-white mb-4">
+          Sign up to the Studio Bar newsletter for weekly news and first release
+          tickets.
+        </p>
 
-                <p class="text-small mb-0">We respect your privacy.</p>
-            </div>
-        </div>
+        <form class="subscribe-form">
+          <div class="d-flex gap-2 mb-3">
+            <input
+              type="email"
+              class="form-control flex-grow-1"
+              placeholder="email address"
+              required />
+            <button type="submit" class="btn btn-danger subscribe-btn">
+              Sign Up
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock %}
