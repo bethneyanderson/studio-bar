@@ -4,7 +4,7 @@ from index.models import Event, Artist
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ['title', 'date', 'description', 'venue_name', 'artist', 'image']
+        fields = ['title', 'date', 'description', 'venue_name', 'artist', 'image', 'price']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Event Title'}),
             'date': forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'datetime-local'}),
@@ -12,6 +12,7 @@ class EventForm(forms.ModelForm):
             'venue_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Venue Name'}),
             'artist': forms.Select(attrs={'class': 'form-control'}),
             'image': forms.FileInput(attrs={'class': 'form-control', 'accept': 'image/*'}),
+            'price': forms.NumberInput(attrs={'class': 'form-control', 'step': '0.01', 'min': '0', 'placeholder': '0.00'}),
         }
         labels = {
             'title': 'Event Title',
@@ -20,4 +21,5 @@ class EventForm(forms.ModelForm):
             'venue_name': 'Venue',
             'artist': 'Artist',
             'image': 'Event Image',
+            'price': 'Ticket Price (£)',
         }
