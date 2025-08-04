@@ -1,0 +1,18 @@
+# Ignore Django template files
+**/templates/**/*.html
+templates/**/*.html
+**/templates/*.html
+*.html
+
+# Ignore static files
+static/
+staticfiles/
+
+# Ignore media files
+media/
+
+# Ignore Python files (use autopep8/black instead)
+*.py
+
+# Ignore migration files
+**/migrations/*.py

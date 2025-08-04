@@ -20,12 +20,12 @@ body {
 .hero-content {
   font-family: "Rye", cursive;
   text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  
 }
 
 /* Info section styling */
 .info-section {
-  padding: 20px 0;
+  padding: 15px 0;
   font-family: "Rye", cursive;
 }
 
@@ -44,7 +44,7 @@ body {
 
 /* Subscribe section styling */
 .subscribe-section {
-  padding: 60px 20px;
+  padding: 10px 20px;
   border-radius: 10px;
   font-family: "Rye", cursive;
 }
@@ -301,4 +301,117 @@ a:hover .event-card .card-title {
   min-height: 300px;
   width: 100%;
   object-fit: cover;
+}
+
+/* Media Queries */
+@media (max-width: 480px) {
+  /* Home page opening times section - align to left on mobile */
+  .info-section[style*="text-align: right"] {
+    text-align: left !important;
+  }
+
+  /* Alternative selector for home page opening times */
+  .col-md-6 .info-section {
+    text-align: left !important;
+  }
+
+  /* Email subscription form - make input and button shorter and wider */
+  .subscribe-form .form-control {
+    height: 40px !important;
+    width: 100% !important;
+    margin-bottom: 10px;
+  }
+
+  .subscribe-btn {
+    height: 40px !important;
+    width: 100% !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Make the form stack vertically on mobile */
+  .subscribe-form .d-flex {
+    flex-direction: column !important;
+  }
+
+  .subscribe-form .me-2 {
+    margin-right: 0 !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* Footer - center all content on mobile */
+  footer .row {
+    text-align: center !important;
+  }
+
+  footer .col-md-8,
+  footer .col-md-4 {
+    text-align: center !important;
+    margin-bottom: 15px;
+  }
+
+  footer .social-links {
+    justify-content: center !important;
+  }
+
+  footer .text-md-end {
+    text-align: center !important;
+  }
+
+  /* Add New Event button - make shorter and wider on mobile */
+  .btn-warning {
+    height: 40px !important;
+    width: 100% !important;
+    padding: 0.5rem 0.5rem !important;
+    font-size: 0.9rem !important;
+    white-space: nowrap;
+  }
+
+  /* Events page header - stack button below title on mobile */
+  .d-flex.justify-content-between.align-items-center {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 15px;
+  }
+
+  .d-flex.justify-content-between.align-items-center > div:last-child {
+    width: 100%;
+  }
+
+  /* Add spacing between event management buttons on mobile */
+  .btn-warning,
+  .btn-danger {
+    margin-bottom: 10px !important;
+  }
+
+  /* Move delete event button down slightly */
+  .btn-danger {
+    margin-top: 20px !important;
+  }
+
+  /* For event detail page buttons - add spacing */
+  .me-2 {
+    margin-right: 0 !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* Add gap between Update and Cancel buttons on update event page */
+  .d-flex.justify-content-between .btn-secondary {
+    margin-right: 15px !important;
+  }
+  
+  .btn-success,
+  .btn-secondary {
+    margin-bottom: 10px !important;
+  }
+
+  /* Add gap between venue information box and footer on mobile */
+  .card.bg-dark.text-white.mt-3:last-child {
+    margin-bottom: 20px !important;
+  }
+
+  /* Add gap between main event card and about artist card on mobile */
+  .col-md-4 .card.bg-dark.text-white:first-child {
+    margin-top: 20px !important;
+  }
 }

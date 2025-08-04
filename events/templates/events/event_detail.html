@@ -1,4 +1,8 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
 <div class="container mt-4">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
@@ -45,16 +49,13 @@
             <div class="col-md-6">
               <h5 class="text-muted">Event Details</h5>
               <p class="mb-2">
-                <strong><i class="fas fa-calendar"></i> Date:</strong> {{
-                event.date|date:"l, F d, Y" }}
+                <strong><i class="fas fa-calendar"></i> Date:</strong> {{ event.date|date:"l, F d, Y" }}
               </p>
               <p class="mb-2">
-                <strong><i class="fas fa-clock"></i> Time:</strong> {{
-                event.date|time:"g:i A" }} | {{ event.get_price_display }}
+                <strong><i class="fas fa-clock"></i> Time:</strong> {{ event.date|time:"g:i A" }} | {{ event.get_price_display }}
               </p>
               <p class="mb-2">
-                <strong><i class="fas fa-map-marker-alt"></i> Venue:</strong> {{
-                event.venue_name }}
+                <strong><i class="fas fa-map-marker-alt"></i> Venue:</strong> {{ event.venue_name }}
               </p>
 
               <!-- Book Tickets button in bottom left -->
@@ -69,12 +70,10 @@
             <div class="col-md-6">
               <h5 class="text-muted">Artist Information</h5>
               <p class="mb-2">
-                <strong><i class="fas fa-microphone"></i> Artist:</strong> {{
-                event.artist.name }}
+                <strong><i class="fas fa-microphone"></i> Artist:</strong> {{ event.artist.name }}
               </p>
               <p class="mb-2">
-                <strong><i class="fas fa-music"></i> Genre:</strong> {{
-                event.artist.genre }}
+                <strong><i class="fas fa-music"></i> Genre:</strong> {{ event.artist.genre }}
               </p>
               {% if event.artist.bio %}
               <p class="mb-2">
