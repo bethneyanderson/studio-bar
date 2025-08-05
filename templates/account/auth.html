@@ -4,136 +4,137 @@
 {% block title %}Log In or Register - Studio Bar{% endblock %}
 
 {% block content %}
-<div class="container-fluid vh-100 d-flex align-items-center justify-content-center">
+<div class="container-fluid d-flex align-items-center justify-content-center auth-container">
     <div class="row w-100 justify-content-center">
         <div class="col-12 col-xl-10">
-            <div class="row g-4">
-                <!-- Login Card -->
-                <div class="col-md-6">
-                    <div class="card bg-dark text-white border-0 shadow-lg h-100">
-                        <div class="card-body p-5">
-                            <h2 class="card-title text-center mb-4">Log In</h2>
-                            
-                            {% if login_form.non_field_errors %}
-                                <div class="alert alert-danger">
-                                    {{ login_form.non_field_errors }}
+            <div class="row g-0 position-relative">
+                <!-- Login Form -->
+                <div class="col-md-6 p-5 auth-form-container">
+                    <h2 class="text-center mb-4 text-white">Login</h2>
+                    
+                    {% if login_form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {{ login_form.non_field_errors }}
+                        </div>
+                    {% endif %}
+                    
+                    <form method="post" action="{% url 'account_login' %}" id="login-form">
+                        {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label for="{{ login_form.login.id_for_label }}" class="form-label text-white">{{ login_form.login.label }}</label>
+                            {{ login_form.login }}
+                            {% if login_form.login.errors %}
+                                <div class="text-danger small mt-1">
+                                    {{ login_form.login.errors }}
                                 </div>
                             {% endif %}
-                            
-                            <form method="post" action="{% url 'account_login' %}" id="login-form">
-                                {% csrf_token %}
-                                
-                                <div class="mb-3">
-                                    <label for="{{ login_form.login.id_for_label }}" class="form-label">{{ login_form.login.label }}</label>
-                                    {{ login_form.login }}
-                                    {% if login_form.login.errors %}
-                                        <div class="text-danger small mt-1">
-                                            {{ login_form.login.errors }}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                                
-                                <div class="mb-3">
-                                    <label for="{{ login_form.password.id_for_label }}" class="form-label">{{ login_form.password.label }}</label>
-                                    {{ login_form.password }}
-                                    {% if login_form.password.errors %}
-                                        <div class="text-danger small mt-1">
-                                            {{ login_form.password.errors }}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                                
-                                <div class="mb-3 form-check">
-                                    {{ login_form.remember }}
-                                    <label class="form-check-label" for="{{ login_form.remember.id_for_label }}">
-                                        {{ login_form.remember.label }}
-                                    </label>
-                                </div>
-                                
-                                <div class="d-grid mb-3">
-                                    <button type="submit" class="btn btn-custom btn-lg" name="login_submit">Log In</button>
-                                </div>
-                                
-                                {% if redirect_field_value %}
-                                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                                {% endif %}
-                            </form>
-                            
-                            <div class="text-center">
-                                <p class="mb-0">
-                                    <a href="{% url 'account_reset_password' %}" class="text-light">Forgot your password?</a>
-                                </p>
-                            </div>
                         </div>
+                        
+                        <div class="mb-3">
+                            <label for="{{ login_form.password.id_for_label }}" class="form-label text-white">{{ login_form.password.label }}</label>
+                            {{ login_form.password }}
+                            {% if login_form.password.errors %}
+                                <div class="text-danger small mt-1">
+                                    {{ login_form.password.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-3 form-check">
+                            {{ login_form.remember }}
+                            <label class="form-check-label text-white" for="{{ login_form.remember.id_for_label }}">
+                                {{ login_form.remember.label }}
+                            </label>
+                        </div>
+                        
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-custom btn-lg" name="login_submit">Login</button>
+                        </div>
+                        
+                        {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+                    </form>
+                    
+                    <div class="text-center">
+                        <p class="mb-0">
+                            <a href="{% url 'account_reset_password' %}" class="text-light hover-red">Forgot your password?</a>
+                        </p>
                     </div>
                 </div>
                 
-                <!-- Register Card -->
-                <div class="col-md-6">
-                    <div class="card bg-dark text-white border-0 shadow-lg h-100">
-                        <div class="card-body p-5">
-                            <h2 class="card-title text-center mb-4">Join Studio Bar</h2>
-                            
-                            {% if signup_form.non_field_errors %}
-                                <div class="alert alert-danger">
-                                    {{ signup_form.non_field_errors }}
+                <!-- Mobile Separator Line -->
+                <div class="d-md-none">
+                    <hr class="separator-line-mobile mx-auto">
+                </div>
+                
+                <!-- Vertical Separator Line -->
+                <div class="d-none d-md-block position-absolute top-0 start-50 translate-middle-x separator-line"></div>
+                
+                <!-- Register Form -->
+                <div class="col-md-6 p-5 auth-form-container">
+                    <h2 class="text-center mb-4 text-white">Join Studio Bar</h2>
+                    
+                    {% if signup_form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {{ signup_form.non_field_errors }}
+                        </div>
+                    {% endif %}
+                    
+                    <form method="post" action="{% url 'account_signup' %}" id="signup-form">
+                        {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label for="{{ signup_form.username.id_for_label }}" class="form-label text-white">{{ signup_form.username.label }}</label>
+                            {{ signup_form.username }}
+                            {% if signup_form.username.errors %}
+                                <div class="text-danger small mt-1">
+                                    {{ signup_form.username.errors }}
                                 </div>
                             {% endif %}
-                            
-                            <form method="post" action="{% url 'account_signup' %}" id="signup-form">
-                                {% csrf_token %}
-                                
-                                <div class="mb-3">
-                                    <label for="{{ signup_form.username.id_for_label }}" class="form-label">{{ signup_form.username.label }}</label>
-                                    {{ signup_form.username }}
-                                    {% if signup_form.username.errors %}
-                                        <div class="text-danger small mt-1">
-                                            {{ signup_form.username.errors }}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                                
-                                <div class="mb-3">
-                                    <label for="{{ signup_form.email.id_for_label }}" class="form-label">{{ signup_form.email.label }}</label>
-                                    {{ signup_form.email }}
-                                    {% if signup_form.email.errors %}
-                                        <div class="text-danger small mt-1">
-                                            {{ signup_form.email.errors }}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                                
-                                <div class="mb-3">
-                                    <label for="{{ signup_form.password1.id_for_label }}" class="form-label">{{ signup_form.password1.label }}</label>
-                                    {{ signup_form.password1 }}
-                                    {% if signup_form.password1.errors %}
-                                        <div class="text-danger small mt-1">
-                                            {{ signup_form.password1.errors }}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                                
-                                <div class="mb-3">
-                                    <label for="{{ signup_form.password2.id_for_label }}" class="form-label">{{ signup_form.password2.label }}</label>
-                                    {{ signup_form.password2 }}
-                                    {% if signup_form.password2.errors %}
-                                        <div class="text-danger small mt-1">
-                                            {{ signup_form.password2.errors }}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                                
-                                <div class="d-grid mb-3">
-                                    <button type="submit" class="btn btn-custom btn-lg" name="signup_submit">Sign Up</button>
-                                </div>
-                                
-                                {% if redirect_field_value %}
-                                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                                {% endif %}
-                            </form>
                         </div>
-                    </div>
+                        
+                        <div class="mb-3">
+                            <label for="{{ signup_form.email.id_for_label }}" class="form-label text-white">{{ signup_form.email.label }}</label>
+                            {{ signup_form.email }}
+                            {% if signup_form.email.errors %}
+                                <div class="text-danger small mt-1">
+                                    {{ signup_form.email.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="{{ signup_form.password1.id_for_label }}" class="form-label text-white">{{ signup_form.password1.label }}</label>
+                            {{ signup_form.password1 }}
+                            {% if signup_form.password1.errors %}
+                                <div class="text-danger small mt-1">
+                                    {{ signup_form.password1.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="{{ signup_form.password2.id_for_label }}" class="form-label text-white">{{ signup_form.password2.label }}</label>
+                            {{ signup_form.password2 }}
+                            {% if signup_form.password2.errors %}
+                                <div class="text-danger small mt-1">
+                                    {{ signup_form.password2.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-custom btn-lg" name="signup_submit">Sign Up</button>
+                        </div>
+                        
+                        {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+                    </form>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -167,11 +168,75 @@
     border-color: #d32f2f;
 }
 
-/* Mobile responsive - stack cards vertically */
+/* Vertical separator line for desktop */
+.separator-line {
+    width: 1px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Horizontal separator line for mobile */
+.separator-line-mobile {
+    width: 50%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    margin: 2rem auto;
+}
+
+/* Mobile responsive - adjust padding */
 @media (max-width: 767.98px) {
-    .card-body {
-        padding: 2rem !important;
+    .auth-container {
+        padding-top: 80px !important;
+        padding-bottom: 80px !important;
+        min-height: calc(100vh - 160px) !important;
     }
+    
+    .auth-form-container {
+        padding: 1.5rem !important;
+    }
+    
+    .col-md-6:first-child {
+        margin-bottom: 1rem;
+    }
+    
+    .separator-line-mobile {
+        margin: 1rem auto !important;
+    }
+    
+    h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .btn-lg {
+        padding: 0.75rem 1rem !important;
+        font-size: 1rem !important;
+    }
+}
+
+/* Tablet responsive */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .auth-container {
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+    }
+    
+    .auth-form-container {
+        padding: 3rem !important;
+    }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    .auth-container {
+        min-height: 100vh;
+    }
+}
+
+.hover-red:hover {
+    color: #dc3545 !important;
+    text-decoration: none;
 }
 </style>
 {% endblock %}

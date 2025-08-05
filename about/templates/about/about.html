@@ -30,13 +30,13 @@
         <div class="mb-5">
           <h3 class="text-white mb-3">{{ about.mission_title }}</h3>
           <div class="row align-items-center mb-4">
-            <div class="col-md-6">
+            <div class="col-md-6 order-md-1 order-2">
               <img
                 src="{% static 'images/about-2.jpg' %}"
                 alt="Live Performance at Studio Bar"
                 class="img-fluid about-image" />
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 order-md-2 order-1">
               <p class="text-white">{{ about.mission_content }}</p>
             </div>
           </div>
@@ -73,6 +73,10 @@
           <h3 class="text-white mb-3">{{ about.community_title }}</h3>
           <p class="text-white">{{ about.community_content }}</p>
         </div>
+
+        <hr style="border: none; height: 3px; background-color: white;" />
+
+    
 
         <div class="text-center">
           <h3 class="text-white mb-3">Visit Us</h3>
