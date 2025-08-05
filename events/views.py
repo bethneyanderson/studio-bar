@@ -40,7 +40,7 @@ def update_event(request, event_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Event updated successfully!')
-            return redirect('events')
+            return redirect('event_detail', event_id=event.id)
     else:
         form = EventForm(instance=event)
     return render(request, 'events/update_event.html', {'form': form, 'event': event})

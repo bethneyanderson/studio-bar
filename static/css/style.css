@@ -124,9 +124,9 @@ body {
 
 /* Vertical separator line between buttons */
 .button-separator {
-  width: 1px;
+  width: 3px;
   height: 30px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: white;
   margin: 0 20px;
   display: inline-block;
   vertical-align: middle;
@@ -413,5 +413,38 @@ a:hover .event-card .card-title {
   /* Add gap between main event card and about artist card on mobile */
   .col-md-4 .card.bg-dark.text-white:first-child {
     margin-top: 20px !important;
+  }
+}
+
+/* For tablet devices */
+@media (max-width: 768px) and (min-width: 481px) {
+  /* Move hero image down a bit on tablets */
+  .home-hero {
+    margin-top: 40px !important;
+    padding-top: 20px !important;
+  }
+  
+  /* Keep "All Rights Reserved" on one line for tablets */
+  footer .text-md-end {
+    text-align: right !important;
+    font-size: 0.9rem !important;
+    white-space: nowrap !important;
+    padding-right: 10px;
+  }
+  
+  /* Add space below hero section on tablets to make content visible */
+  .home-hero + .container {
+    margin-top: 80px !important;
+    padding-top: 30px !important;
+  }
+  
+  /* Ensure the first container after hero has proper spacing */
+  .container.my-5 {
+    margin-top: 80px !important;
+    padding-top: 40px !important;
+  }
+
+  .info-section {
+    margin-top: 40px;
   }
 }

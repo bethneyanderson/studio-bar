@@ -54,9 +54,6 @@
               <p class="mb-2">
                 <strong><i class="fas fa-clock"></i> Time:</strong> {{ event.date|time:"g:i A" }} | {{ event.get_price_display }}
               </p>
-              <p class="mb-2">
-                <strong><i class="fas fa-map-marker-alt"></i> Venue:</strong> {{ event.venue_name }}
-              </p>
 
               <!-- Book Tickets button in bottom left -->
               <div class="mt-3">
@@ -75,12 +72,6 @@
               <p class="mb-2">
                 <strong><i class="fas fa-music"></i> Genre:</strong> {{ event.artist.genre }}
               </p>
-              {% if event.artist.bio %}
-              <p class="mb-2">
-                <strong><i class="fas fa-info-circle"></i> About:</strong> {{
-                event.artist.bio|truncatewords:20 }}
-              </p>
-              {% endif %}
             </div>
           </div>
         </div>
@@ -88,37 +79,16 @@
     </div>
 
     <div class="col-md-4">
-      <div class="card bg-dark text-white">
+      <div class="card bg-dark text-white mb-5">
         <div class="card-body">
           <h5 class="card-title">About {{ event.artist.name }}</h5>
           {% if event.artist.bio %}
-          <p class="card-text">{{ event.artist.bio }}</p>
+          <div class="card-text">{{ event.artist.bio|linebreaksbr }}</div>
           {% else %}
           <p class="card-text text-muted">
             No additional information available about this artist.
           </p>
           {% endif %}
-        </div>
-      </div>
-
-      <div class="card bg-dark text-white mt-3">
-        <div class="card-body">
-          <h5 class="card-title">Venue Information</h5>
-          <div class="mb-2">
-            <i class="fas fa-map-marker-alt text-danger"></i>
-            <strong class="ms-2">{{ event.venue_name }}</strong>
-          </div>
-          <div class="mb-2">
-            <i class="fas fa-calendar text-danger"></i>
-            <span class="ms-2">{{ event.date|date:"l, F d, Y" }}</span>
-          </div>
-          <div class="mb-2">
-            <i class="fas fa-clock text-danger"></i>
-            <span class="ms-2"
-              >{{ event.date|time:"g:i A" }} | {{ event.get_price_display
-              }}</span
-            >
-          </div>
         </div>
       </div>
     </div>
