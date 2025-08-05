@@ -84,23 +84,16 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="{% url 'logout' %}"
+              <a class="nav-link text-white" href="{% url 'account_logout' %}"
                 >Log out</a
               >
             </li>
             {% else %}
             <li class="nav-item">
               <a
-                class="nav-link text-white {% if '/register' in request.path %}active{% endif %}"
-                href="{% url 'register' %}"
-                >Register</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link text-white {% if '/login' in request.path %}active{% endif %}"
-                href="{% url 'login' %}"
-                >Log in</a
+                class="nav-link text-white {% if '/auth' in request.path %}active{% endif %}"
+                href="{% url 'combined_auth' %}"
+                >Log In or Register</a
               >
             </li>
             {% endif %}

@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from django.contrib.auth import login
 from django.contrib import messages
 from django.contrib.auth.decorators import user_passes_test
-from .forms import CustomUserCreationForm, ArtistForm
+from .forms import ArtistForm
 from .models import Artist
 
 def is_admin(user):
@@ -12,18 +11,6 @@ def is_admin(user):
 # Create your views here.
 def home_page_view(request):
     return render(request, 'index.html')
-
-def register_view(request):
-    if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            messages.success(request, 'Registration successful! Welcome to Studio Bar.')
-            return redirect('home')
-    else:
-        form = CustomUserCreationForm()
-    return render(request, 'registration/register.html', {'form': form})
 
 @user_passes_test(is_admin)
 def artists_list_view(request):

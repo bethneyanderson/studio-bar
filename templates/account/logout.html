@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Log Out - Studio Bar{% endblock %}
+
+{% block content %}
+<div class="container-fluid vh-100 d-flex align-items-center justify-content-center">
+    <div class="row w-100 justify-content-center">
+        <div class="col-md-8 col-lg-6 col-xl-5">
+            <div class="card bg-dark text-white border-0 shadow-lg">
+                <div class="card-body p-5 text-center">
+                    <h2 class="card-title mb-4">Sign Out</h2>
+                    <p class="mb-4">Are you sure you want to sign out?</p>
+                    
+                    <form method="post" action="{% url 'account_logout' %}">
+                        {% csrf_token %}
+                        {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                        {% endif %}
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-custom btn-lg">Sign Out</button>
+                            <a href="{% url 'home' %}" class="btn btn-outline-light">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
