@@ -188,9 +188,33 @@
 
     <!-- Custom JavaScript -->
     <script>
-      // Prevent card link navigation when clicking on book tickets button
+      // Auto-dismiss notifications after 5 seconds
       document.addEventListener("DOMContentLoaded", function () {
-        // Handle book tickets button clicks
+        // Auto-dismiss notifications
+        const notifications = document.querySelectorAll('.alert.studio-notification');
+        notifications.forEach(function(notification) {
+          // Auto-dismiss success messages after 4 seconds
+          if (notification.classList.contains('alert-success')) {
+            setTimeout(function() {
+              notification.classList.add('fade-out');
+              setTimeout(function() {
+                notification.remove();
+              }, 300);
+            }, 4000);
+          }
+          // Auto-dismiss info messages after 6 seconds
+          else if (notification.classList.contains('alert-info')) {
+            setTimeout(function() {
+              notification.classList.add('fade-out');
+              setTimeout(function() {
+                notification.remove();
+              }, 300);
+            }, 6000);
+          }
+          // Keep error and warning messages visible until manually dismissed
+        });
+
+        // Prevent card link navigation when clicking on book tickets button
         document.querySelectorAll(".book-tickets-btn").forEach((button) => {
           button.addEventListener("click", function (e) {
             e.stopPropagation();

@@ -6,27 +6,46 @@ Live link:
 
 ## Table of Contents
 
-1. UX Design
-   i. Colour Scheme
-   ii. Typography
-   iii. Imagery
-   iv. User Stories and kanban board
-   v. Wireframes
-   vi. ERD Diagram
-2. Features
-   i. Existing Features
-   ii. Features Left to Implement
-3. Technologies Used
-   i. How AI Was Used
-4. Testing
-   i. Manual Testing
-   ii. Automated Testing
-   iii. Code Validation
-   iv. LightHouse Testing
-5. Deployment
-6. Credits and Acknowledgements
-   i. Content
-   ii. Media
+1. **UX Design**
+
+   - I. Colour Scheme
+   - II. Typography
+   - III. Imagery
+   - IV. User Stories and Kanban Board
+   - V. Wireframes
+   - VI. ERD Diagram
+
+2. **Features**
+
+   - I. Existing Features
+   - II. Features Left to Implement
+
+3. **Technologies Used**
+
+   - I. Backend Framework & Core Technologies
+   - II. Database & Data Management
+   - III. User Authentication & Account Management
+   - IV. Content Management & Rich Text
+   - V. Frontend Technologies
+   - VI. Static Files & Media Management
+   - VII. Development & Deployment Tools
+   - VIII. Code Quality & Development Tools
+   - IX. Security & Performance
+   - X. Testing & Quality Assurance
+   - XI. How AI Was Used
+
+4. **Testing**
+
+   - I. Manual Testing
+   - II. Automated Testing
+   - III. Code Validation
+   - IV. Lighthouse Testing
+
+5. **Deployment**
+
+6. **Credits and Acknowledgements**
+   - I. Content
+   - II. Media
 
 ## UX Design
 

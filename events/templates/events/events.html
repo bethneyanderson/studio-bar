@@ -23,14 +23,27 @@
 
   <!-- Django Messages Display (Success, Error, etc.) -->
   {% if messages %} 
-  {% for message in messages %}
-  <div
-    class="alert alert-{{ message.tags }} alert-dismissible fade show"
-    role="alert">
-    {{ message }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  <div class="notifications-container">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} studio-notification alert-dismissible fade show" role="alert">
+      <span class="message-icon">
+        {% if message.tags == 'success' %}
+          <i class="fas fa-check-circle"></i>
+        {% elif message.tags == 'error' or message.tags == 'danger' %}
+          <i class="fas fa-exclamation-circle"></i>
+        {% elif message.tags == 'warning' %}
+          <i class="fas fa-exclamation-triangle"></i>
+        {% elif message.tags == 'info' %}
+          <i class="fas fa-info-circle"></i>
+        {% else %}
+          <i class="fas fa-bell"></i>
+        {% endif %}
+      </span>
+      {{ message }}
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %} 
   {% endif %}   
 
   <!-- Events Display Section -->
