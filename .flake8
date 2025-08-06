@@ -1,0 +1,44 @@
+[flake8]
+# Maximum line length
+max-line-length = 88
+
+# Ignore specific error codes
+ignore = 
+    # E203: whitespace before ':' (conflicts with black formatter)
+    E203,
+    # W503: line break before binary operator (conflicts with PEP 8)
+    W503,
+    # F401: imported but unused (common in Django __init__.py files)
+    # F403: 'from module import *' used (common in Django settings)
+    # DJ01: Avoid using null=True on string-based fields (Django-specific)
+
+# Directories to exclude from linting
+exclude = 
+    .git,
+    __pycache__,
+    .venv,
+    venv,
+    env,
+    migrations,
+    staticfiles,
+    node_modules,
+    .pytest_cache,
+    build,
+    dist,
+    *.egg-info
+
+# Files to exclude
+per-file-ignores =
+    # Django settings files can have long lines and imports
+    */settings.py:E501,F405,F403
+    # Django URL files often have long lines
+    */urls.py:E501
+    # Django migrations are auto-generated
+    */migrations/*.py:E501,F401,F403,F405
+    # __init__.py files may have unused imports
+    */__init__.py:F401,F403
+
+# Enable Django-specific checks
+extend-ignore = 
+    # DJ01: Avoid using null=True on string-based fields
+    DJ01

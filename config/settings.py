@@ -15,7 +15,7 @@ import os
 import dj_database_url
 
 if os.path.isfile('env.py'):
-    import env
+    import env  # noqa: F401
     DEBUG = True
 else:
     DEBUG = False
@@ -25,11 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
-
-
-
 SECRET_KEY = os.environ.get('SECRET_KEY')
-
 
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com',]
@@ -85,7 +81,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
 
 
 DATABASES = {"default": dj_database_url.parse(os.environ.get('DATABASE_URL'))}

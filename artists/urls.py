@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import (
-    artists_list_view, 
+    artists_list_view,
     create_artist_view, update_artist_view, delete_artist_view
 )
 

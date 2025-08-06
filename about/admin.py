@@ -6,7 +6,7 @@ from .models import About
 class AboutAdmin(admin.ModelAdmin):
     list_display = ['__str__', 'updated_at', 'updated_by']
     readonly_fields = ['updated_at', 'updated_by']
-    
+
     fieldsets = (
         ('Story Section', {
             'fields': ('story_title', 'story_lead', 'story_content')
@@ -31,7 +31,7 @@ class AboutAdmin(admin.ModelAdmin):
             'classes': ('collapse',)
         }),
     )
-    
+
     def save_model(self, request, obj, form, change):
         obj.updated_by = request.user
         super().save_model(request, obj, form, change)

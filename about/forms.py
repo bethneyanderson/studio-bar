@@ -8,12 +8,12 @@ class AboutForm(forms.ModelForm):
         fields = [
             'story_title', 'story_lead', 'story_content',
             'mission_title', 'mission_content',
-            'space_title', 'space_content', 
+            'space_title', 'space_content',
             'programming_title', 'programming_content',
             'community_title', 'community_content',
             'address', 'opening_hours', 'email'
         ]
-        
+
         widgets = {
             'story_title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Section title'}),
             'story_lead': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Lead paragraph...'}),

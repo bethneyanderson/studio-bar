@@ -4,13 +4,16 @@ from django.contrib.auth.decorators import user_passes_test
 from .forms import ArtistForm
 from .models import Artist
 
+
 def is_admin(user):
     return user.is_authenticated and user.is_staff
+
 
 @user_passes_test(is_admin)
 def artists_list_view(request):
     artists = Artist.objects.all().order_by('name')
     return render(request, 'artists/artists.html', {'artists': artists})
+
 
 @user_passes_test(is_admin)
 def create_artist_view(request):
@@ -24,6 +27,7 @@ def create_artist_view(request):
         form = ArtistForm()
     return render(request, 'artists/create_artist.html', {'form': form})
 
+
 @user_passes_test(is_admin)
 def update_artist_view(request, artist_id):
     artist = get_object_or_404(Artist, id=artist_id)
@@ -35,7 +39,9 @@ def update_artist_view(request, artist_id):
             return redirect('artists_list')
     else:
         form = ArtistForm(instance=artist)
-    return render(request, 'artists/update_artist.html', {'form': form, 'artist': artist})
+    return render(request, 'artists/update_artist.html',
+                  {'form': form, 'artist': artist})
+
 
 @user_passes_test(is_admin)
 def delete_artist_view(request, artist_id):

@@ -1,4 +1,3 @@
-from django import forms
 from allauth.account.forms import LoginForm, SignupForm, ResetPasswordForm
 
 

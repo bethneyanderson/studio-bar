@@ -1,5 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from .models import About
@@ -19,14 +18,14 @@ def about_page_view(request):
             'community_content': 'We\'re proud to support local initiatives and festivals, including our partnership with the Golowan Festival. We also participate in community programs and support emerging artists through our platform.'
         }
     )
-    
+
     return render(request, 'about/about.html', {'about': about_content})
 
 
 @staff_member_required
 def edit_about_view(request):
     about_content, created = About.objects.get_or_create(id=1)
-    
+
     if request.method == 'POST':
         form = AboutForm(request.POST, instance=about_content)
         if form.is_valid():
@@ -37,5 +36,6 @@ def edit_about_view(request):
             return redirect('about')
     else:
         form = AboutForm(instance=about_content)
-    
-    return render(request, 'about/edit_about.html', {'form': form, 'about': about_content})
+
+    return render(request, 'about/edit_about.html',
+                  {'form': form, 'about': about_content})

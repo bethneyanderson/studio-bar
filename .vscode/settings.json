@@ -12,5 +12,31 @@
   },
   "emmet.includeLanguages": {
     "django-html": "html"
+  },
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Args": [
+    "--max-line-length=88",
+    "--ignore=E203,W503"
+  ],
+  "python.formatting.provider": "autopep8",
+  "python.formatting.autopep8Args": [
+    "--max-line-length=88",
+    "--aggressive",
+    "--aggressive"
+  ],
+  "python.linting.lintOnSave": true,
+  "python.formatting.formatOnSave": true,
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/migrations": false
   }
 }
