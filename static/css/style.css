@@ -322,6 +322,20 @@ footer p {
   font-weight: bold;
 }
 
+.navbar-toggler {
+  border-color: var(--brand-primary) !important;
+}
+
+.navbar-toggler:focus {
+  border-color: var(--brand-primary) !important;
+  box-shadow: var(--shadow-brand-focus) !important;
+}
+
+.navbar-toggler:active,
+.navbar-toggler.active {
+  border-color: var(--brand-primary-hover) !important;
+}
+
 /* ========================================
    PAGE-SPECIFIC STYLES
    ======================================== */
@@ -435,6 +449,10 @@ footer p {
     padding: 0.5rem 0.5rem !important;
     font-size: 0.9rem !important;
     white-space: nowrap;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
   }
 
   /* Events page header - stack button below title on mobile */
@@ -452,6 +470,10 @@ footer p {
   .btn-warning,
   .btn-danger {
     margin-bottom: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
   }
 
   /* Move delete event button down slightly */
@@ -473,6 +495,10 @@ footer p {
   .btn-success,
   .btn-secondary {
     margin-bottom: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
   }
 
   /* Add gap between venue information box and footer on mobile */
