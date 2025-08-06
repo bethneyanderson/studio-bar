@@ -4,7 +4,7 @@ A sleek web app for Studio Bar, showcasing live events and underground music. Ev
 
 Live link:
 
-##Table of Contents
+## Table of Contents
 
 1. UX Design
    i. Colour Scheme
@@ -32,7 +32,9 @@ Live link:
 
 ### Colour Scheme
 
-The site’s colour scheme uses black, red, and white to reflect Studio Bar’s bold, pared-down aesthetic. Black provides depth and atmosphere, red adds contrast and energy, and white ensures clarity throughout. The palette is direct, confident, and visually striking.
+![Studio Bar Color Palette showing black, red and white theme colors](readme-docs/AdobeColor-My%20Color%20Theme.jpeg)
+
+The site's colour scheme uses black, red, and white to reflect Studio Bar's bold, pared-down aesthetic. Black provides depth and atmosphere, red adds contrast and
 
 ### Typography
 
@@ -40,19 +42,332 @@ The site uses the Google Font “Rye” for its text elements. This typeface was
 
 ### Imagery
 
-CHECK OUT CLOUDINARY
+To amplify the energy of Studio Bar, the site features a mix of AI-generated artwork and select stock photography. These visuals echo the spirit of live performance, alternative culture, and vibrant community—gritty textures, expressive lighting, and dynamic crowd moments. Each image was chosen to support narrative flow and immerse users in the venue’s atmosphere.
+
+Images are fully optimized for fast loading and responsive design, with descriptive alt text included throughout to ensure accessibility and visual clarity across devices.
 
 ### User Stories and kanban board
 
-![alt-text](readme-docs/studio-bar-kanban.png)
+![Studio Bar Kanban board showing user stories and development workflow](readme-docs/studio-bar-kanban.png)
 
 User stories guided the setup of a Kanban board for streamlined task tracking. Development was carried out using agile methodology, with iterative updates and continuous feedback driving progress.
 
 ### Wireframes
 
-![alt-text](readme-docs/studio-bar-phone.png)
-![alt-text](readme-docs/studio-bar-desktop.png)
+![Studio Bar mobile wireframe design showing responsive layout](readme-docs/studio-bar-phone.png)
+![Studio Bar desktop wireframe design showing full-screen layout](readme-docs/studio-bar-desktop.png)
 
 ### ERD Diagram
 
-![alt-text](readme-docs/studio-bar-erd.png)
+![Studio Bar Entity Relationship Diagram showing database structure](readme-docs/studio-bar-erd.png)
+
+## Features
+
+### Existing Features
+
+#### User Authentication & Account Management
+
+- **User Registration & Login**: Secure user registration and login system using Django Allauth
+- **Combined Authentication Page**: Streamlined login and registration interface for better user experience
+- **Password Recovery**: Users can reset forgotten passwords through secure email verification
+- **Session Management**: Persistent login sessions with secure logout functionality
+
+#### Event Management System
+
+- **Public Events Display**: All users can view upcoming events on the main events page
+- **Detailed Event Information**: Each event has its own detail page showing full information including:
+  - Event title, date, and description
+  - Associated artist information and biography
+  - Event pricing (displayed as "Free" for £0.00 events)
+  - Event poster/promotional images
+- **Staff Event Management** (Admin Only):
+  - Create new events with comprehensive form validation
+  - Edit existing event details
+  - Delete events with confirmation prompts
+  - Upload event images with automatic file handling
+
+#### Artist Management System (Staff Only)
+
+- **Artist Database**: Comprehensive artist information management
+- **Artist Profiles**: Each artist has detailed profiles including:
+  - Name and genre classification
+  - Full biography section
+  - Social media links
+  - List of associated events
+- **CRUD Operations**: Full Create, Read, Update, Delete functionality for artists
+- **Artist-Event Relationships**: Events are linked to artists with foreign key relationships
+
+#### Dynamic About Page
+
+- **Editable Content**: Staff can edit all about page content through the admin interface
+- **Content Sections**: Organized sections including:
+  - Studio Bar story and history
+  - Mission statement
+  - Venue space description
+  - Programming information
+  - Community involvement
+  - Contact information and opening hours
+- **Live Updates**: Changes are immediately reflected on the public-facing page
+
+#### Responsive Design & User Interface
+
+- **Mobile-First Design**: Fully responsive layout that works on all device sizes
+- **Bootstrap Integration**: Professional styling using Bootstrap 5.3.7 framework
+- **Dark Theme**: Consistent black, red, and white color scheme reflecting Studio Bar's brand
+- **Interactive Navigation**:
+  - Collapsible mobile menu
+  - Active page indicators
+  - User-specific navigation (different options for staff vs regular users)
+
+#### Admin Interface & Staff Features
+
+- **Django Admin Integration**: Full admin panel access for staff members
+- **Staff-Only Controls**:
+  - Event and artist management buttons visible only to staff
+  - Edit controls on about page for content updates
+  - Protected admin routes with authentication checks
+- **User Role Management**: Distinction between regular users and staff members
+- **Content Management**: Staff can update all dynamic content without code changes
+
+#### Media Handling
+
+- **Image Upload System**: Secure image upload for event posters
+- **Media File Management**: Organized file storage in appropriate directories
+- **Image Optimization**: Automatic handling of uploaded images with proper validation
+
+#### Technical Features
+
+- **Database Relationships**: Well-structured database with proper foreign key relationships
+- **Form Validation**: Comprehensive form validation for all user inputs
+- **Error Handling**: User-friendly error messages and validation feedback
+- **Security Features**: CSRF protection, secure authentication, and staff-only route protection
+- **SEO Optimization**: Proper meta tags, semantic HTML structure, and accessibility features
+
+#### Navigation & User Experience
+
+- **Intuitive Menu Structure**: Clear navigation between Home, Events, About, and staff sections
+- **Breadcrumb-Style Navigation**: Easy movement between related pages
+- **Success Messages**: User feedback for all actions (create, update, delete operations)
+- **Consistent Styling**: Unified design language across all pages
+
+### Features Left to Implement
+
+#### Enhanced Event Features
+
+- **Event Categories**: Add genre or event type categorization for better organization
+- **Event Search & Filtering**: Allow users to search events by date, artist, or genre
+- **Event Calendar View**: Interactive calendar display of upcoming events
+- **Ticket Booking System**: Integration with ticket purchasing functionality
+- **Event Capacity Management**: Track and display available spaces for events
+
+#### User Engagement Features
+
+- **User Profiles**: Extended user profiles with preferences and event history
+- **Favorite Events**: Users can save events to a favorites list
+- **Event Reviews**: Allow users to rate and review past events
+- **Email Notifications**: Automated emails for new events or event updates
+- **Social Media Integration**: Share events on social platforms
+
+#### Content Management Enhancements
+
+- **Rich Text Editor**: Implement Summernote for better content editing
+- **Image Gallery**: Multiple images per event with gallery view
+- **Video Integration**: Embed promotional videos or live streams
+- **Newsletter System**: Email marketing integration for event announcements
+
+#### Advanced Features
+
+- **Event Analytics**: Dashboard showing event popularity and attendance tracking
+- **Artist Booking System**: Calendar integration for artist availability
+- **Venue Management**: Multiple venue support with location-specific events
+- **Payment Integration**: Direct ticket sales through the platform
+- **Mobile App**: Companion mobile application for enhanced user experience
+
+## Technologies Used
+
+### Backend Framework & Core Technologies
+
+#### Django 4.2.23
+
+- **Model-View-Template (MVT) Architecture**: Structured application design with clear separation of concerns
+- **Object-Relational Mapping (ORM)**: Database interactions through Django models with automatic SQL generation
+- **Django Admin Interface**: Built-in admin panel for content management with customized admin classes
+- **Authentication System**: Built-in user authentication with custom forms and views
+- **URL Routing**: Clean URL patterns with app-specific routing configurations
+- **Template System**: Dynamic HTML generation with Django template language
+- **Forms Framework**: Comprehensive form handling with validation and custom widgets
+- **Middleware Integration**: Security, session management, and custom middleware support
+
+#### Python 3.11
+
+- **Core Programming Language**: Modern Python features and syntax
+- **Virtual Environment Support**: Isolated development environment management
+- **Package Management**: pip-based dependency management with requirements.txt
+
+### Database & Data Management
+
+#### PostgreSQL (Production)
+
+- **Primary Database**: Robust relational database for production deployment
+- **Connection Management**: Database URL configuration via dj-database-url
+- **Foreign Key Relationships**: Well-structured data relationships between models
+- **Migration System**: Automated database schema management through Django migrations
+
+#### Database Libraries
+
+- **psycopg2-binary 2.9.10**: PostgreSQL adapter for Python/Django
+- **dj-database-url 0.5.0**: Database configuration from environment variables
+
+### User Authentication & Account Management
+
+#### Django Allauth 0.54.0
+
+- **Complete Authentication Solution**: Registration, login, logout, password management
+- **Email Integration**: Email verification and password reset functionality
+- **Custom Forms**: Customized authentication forms for better user experience
+- **Social Authentication Ready**: Framework for potential social login integration
+- **Account Management**: User profile and session management
+
+### Content Management & Rich Text
+
+#### Django Summernote 0.8.20.0
+
+- **WYSIWYG Editor Integration**: Rich text editing capabilities for content management
+- **Media Upload Support**: Image and file upload functionality within rich text
+- **Admin Integration**: Seamless integration with Django admin interface
+- **Customizable Interface**: Configurable editor settings and styling options
+
+### Frontend Technologies
+
+#### Bootstrap 5.3.7
+
+- **Responsive Framework**: Mobile-first responsive design components
+- **Grid System**: Flexible layout system for all device sizes
+- **Component Library**: Pre-built UI components (cards, forms, navigation, buttons)
+- **Utility Classes**: Comprehensive utility classes for styling and layout
+- **JavaScript Components**: Interactive components like collapsible navigation
+
+#### HTML5 & CSS3
+
+- **Semantic HTML**: Proper document structure and accessibility features
+- **Custom CSS**: Brand-specific styling with CSS custom properties
+- **Responsive Design**: Media queries and flexible layouts
+- **CSS Grid & Flexbox**: Modern layout techniques for complex designs
+
+#### JavaScript (Vanilla)
+
+- **DOM Manipulation**: Interactive user interface elements
+- **Form Enhancement**: Client-side form validation and user feedback
+- **Bootstrap Integration**: JavaScript for Bootstrap component functionality
+
+#### Google Fonts
+
+- **Rye Font Family**: Custom typography for brand identity and character
+- **Web Font Optimization**: Efficient font loading and display
+
+### Static Files & Media Management
+
+#### WhiteNoise 6.6.0
+
+- **Static File Serving**: Efficient static file serving in production
+- **Compression**: Automatic static file compression for performance
+- **Django Integration**: Seamless integration with Django's static files system
+- **Manifest Storage**: Static file versioning and caching
+
+#### Pillow 11.3.0
+
+- **Image Processing**: Python Imaging Library for image upload and manipulation
+- **Format Support**: Wide range of image format support (JPEG, PNG, etc.)
+- **Image Validation**: Automatic image validation for security
+- **Django ImageField Support**: Backend for Django's ImageField functionality
+
+### Development & Deployment Tools
+
+#### Gunicorn 20.1.0
+
+- **WSGI HTTP Server**: Production-ready Python web server
+- **Heroku Compatibility**: Optimized for Heroku deployment
+- **Process Management**: Multi-worker process handling for scalability
+- **Django Integration**: Seamless Django application serving
+
+#### Version Control & CI/CD
+
+- **Git**: Source code version control with GitHub repository
+- **GitHub Actions**: Automated testing and continuous integration
+- **Heroku Deployment**: Cloud-based application deployment and hosting
+
+### Code Quality & Development Tools
+
+#### flake8 7.0.0 + flake8-django 1.4.0
+
+- **Code Quality Automation**: Comprehensive Python linting and style checking
+- **Django-Specific Rules**: Specialized linting for Django best practices
+- **PEP 8 Compliance**: Automatic Python style guide enforcement
+- **VS Code Integration**: Real-time linting feedback during development
+- **CI/CD Integration**: Automated code quality checks in deployment pipeline
+
+#### Development Environment
+
+- **VS Code**: Primary development environment with extensions
+- **Make**: Build automation and development workflow commands
+- **Virtual Environment**: Isolated Python environment for development
+- **Environment Variables**: Secure configuration management
+
+### Security & Performance
+
+#### Security Features
+
+- **CSRF Protection**: Cross-Site Request Forgery protection enabled
+- **SQL Injection Prevention**: ORM-based database queries
+- **User Authentication**: Secure login/logout with session management
+- **Staff Authorization**: Role-based access control for admin features
+- **Secure Headers**: Security middleware for HTTP headers
+
+#### Performance Optimization
+
+- **Static File Compression**: WhiteNoise compression for faster loading
+- **Database Optimization**: Efficient queries with select_related()
+- **Image Optimization**: Automatic image processing and validation
+- **Caching Strategy**: Django's built-in caching framework integration
+
+### Testing & Quality Assurance
+
+#### Built-in Testing Framework
+
+- **Django TestCase**: Unit testing framework for models, views, and forms
+- **Test Database**: Isolated testing environment with temporary database
+- **Coverage Analysis**: Code coverage tracking for comprehensive testing
+- **GitHub Actions**: Automated testing on push and pull requests
+
+### How AI Was Used
+
+#### Development Assistance
+
+- **Code Generation**: AI assistance for boilerplate code creation and Django best practices
+- **Problem Solving**: AI-powered debugging and troubleshooting support
+- **Documentation**: AI assistance in creating comprehensive documentation and code comments
+- **Code Review**: AI suggestions for code improvement and optimization
+- **Architecture Planning**: AI guidance on Django project structure and design patterns
+
+#### Content Creation
+
+- **README Documentation**: AI assistance in creating comprehensive project documentation
+- **Code Comments**: AI-generated explanatory comments for complex functionality
+- **Error Handling**: AI suggestions for user-friendly error messages and validation
+- **Feature Planning**: AI input on feature implementation strategies and best practices
+
+#### Quality Assurance
+
+- **Code Standards**: AI assistance in maintaining consistent coding standards
+- **Security Best Practices**: AI guidance on Django security implementation
+- **Performance Optimization**: AI suggestions for database query optimization and caching
+- **Accessibility**: AI recommendations for web accessibility improvements
+
+The AI assistance was particularly valuable in:
+
+- Setting up the Django project structure with proper app organization
+- Implementing Django Allauth authentication with custom forms
+- Creating responsive templates with Bootstrap integration
+- Establishing proper database relationships and model design
+- Implementing code quality automation with flake8
+- Comprehensive documentation and README creation
