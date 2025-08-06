@@ -1,5 +1,6 @@
 from django import forms
-from index.models import Event, Artist
+from index.models import Event
+from artists.models import Artist
 
 class EventForm(forms.ModelForm):
     class Meta:
