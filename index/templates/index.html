@@ -71,7 +71,7 @@
         <p class="text-white mb-0">
           <a
             href="https://golowanfestival.org/"
-            class="text-decoration-none"
+            class="text-decoration-none" target="_blank"
             style="color: #dc3545"
             >Golowan Festival</a
           >
@@ -85,14 +85,14 @@
 <div class="container mt-1 mb-5">
   <div class="row justify-content-center">
     <div class="col-md-8 col-lg-6">
-      <div class="subscribe-section text-center">
+      <div class="subscribe-section text-center" id="subscribe-section">
         <h3 class="text-white mb-3">Subscribe</h3>
         <p class="text-white mb-4">
           Sign up to the Studio Bar newsletter for weekly news and first release
           tickets.
         </p>
 
-        <form class="subscribe-form">
+        <form class="subscribe-form" id="subscribe-form">
           <div class="d-flex gap-2 mb-3">
             <input
               type="email"
@@ -108,4 +108,20 @@
     </div>
   </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const subscribeForm = document.getElementById('subscribe-form');
+  const subscribeSection = document.getElementById('subscribe-section');
+  
+  if (subscribeForm && subscribeSection) {
+    subscribeForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Replace the entire subscribe section content with thank you message
+      subscribeSection.innerHTML = '<h2 class="text-white">Thank you for subscribing!</h2>';
+    });
+  }
+});
+</script>
 {% endblock %}
