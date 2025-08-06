@@ -1,7 +1,10 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} {% load static %} 
+
+{% block content %}
 <div class="container mt-4">
   <div class="row justify-content-center">
     <div class="col-lg-8">
+      <!-- Page Header with Edit Button (Staff Only) -->
       <div class="d-flex justify-content-between align-items-center mb-5">
         <h1 class="text-white text-center flex-grow-1">About Studio Bar</h1>
         {% if user.is_staff %}
@@ -11,7 +14,9 @@
         {% endif %}
       </div>
 
+      <!-- About Content Sections (Dynamic from Database) -->
       <div class="about-content">
+        <!-- Story Section -->
         <div class="mb-5">
           <h3 class="text-white mb-3">{{ about.story_title }}</h3>
           <div class="row align-items-center mb-4">
@@ -19,11 +24,12 @@
               <p class="text-white lead">{{ about.story_lead }}</p>
               <p class="text-white">{{ about.story_content }}</p>
             </div>
+            <!-- Story Image -->
             <div class="col-md-6">
               <img
                 src="{% static 'images/about-1.jpg' %}"
                 alt="Studio Bar Interior"
-                class="img-fluid about-image" />
+                class="img-fluid about-image">
             </div>
           </div>
         </div>

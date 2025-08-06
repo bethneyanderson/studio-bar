@@ -4,23 +4,28 @@
 {% block title %}Log In or Register - Studio Bar{% endblock %}
 
 {% block content %}
+<!-- Combined Authentication Page Container -->
 <div class="container-fluid d-flex align-items-center justify-content-center auth-container">
     <div class="row w-100 justify-content-center">
         <div class="col-12 col-xl-10">
             <div class="row g-0 position-relative">
-                <!-- Login Form -->
+                
+                <!-- LOGIN FORM SECTION -->
                 <div class="col-md-6 p-5 auth-form-container">
                     <h2 class="text-center mb-4 text-white">Login</h2>
                     
+                    <!-- Login Form Errors -->
                     {% if login_form.non_field_errors %}
                         <div class="alert alert-danger">
                             {{ login_form.non_field_errors }}
                         </div>
                     {% endif %}
                     
+                    <!-- Login Form -->
                     <form method="post" action="{% url 'account_login' %}" id="login-form">
                         {% csrf_token %}
                         
+                        <!-- Username/Email Field -->
                         <div class="mb-3">
                             <label for="{{ login_form.login.id_for_label }}" class="form-label text-white">{{ login_form.login.label }}</label>
                             {{ login_form.login }}
@@ -31,6 +36,7 @@
                             {% endif %}
                         </div>
                         
+                        <!-- Password Field -->
                         <div class="mb-3">
                             <label for="{{ login_form.password.id_for_label }}" class="form-label text-white">{{ login_form.password.label }}</label>
                             {{ login_form.password }}
@@ -41,6 +47,7 @@
                             {% endif %}
                         </div>
                         
+                        <!-- Remember Me Checkbox -->
                         <div class="mb-3 form-check">
                             {{ login_form.remember }}
                             <label class="form-check-label text-white" for="{{ login_form.remember.id_for_label }}">
@@ -48,15 +55,18 @@
                             </label>
                         </div>
                         
+                        <!-- Login Submit Button -->
                         <div class="d-grid mb-3">
                             <button type="submit" class="btn btn-custom btn-lg" name="login_submit">Login</button>
                         </div>
                         
+                        <!-- Hidden Redirect Field -->
                         {% if redirect_field_value %}
                             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
                         {% endif %}
                     </form>
                     
+                    <!-- Password Reset Link -->
                     <div class="text-center">
                         <p class="mb-0">
                             <a href="{% url 'account_reset_password' %}" class="text-light hover-red">Forgot your password?</a>
@@ -64,27 +74,31 @@
                     </div>
                 </div>
                 
-                <!-- Mobile Separator Line -->
+                <!-- VISUAL SEPARATORS -->
+                <!-- Mobile Horizontal Separator -->
                 <div class="d-md-none">
                     <hr class="separator-line-mobile mx-auto">
                 </div>
                 
-                <!-- Vertical Separator Line -->
+                <!-- Desktop Vertical Separator -->
                 <div class="d-none d-md-block position-absolute top-0 start-50 translate-middle-x separator-line"></div>
                 
-                <!-- Register Form -->
+                <!-- REGISTRATION FORM SECTION -->
                 <div class="col-md-6 p-5 auth-form-container">
                     <h2 class="text-center mb-4 text-white">Join Studio Bar</h2>
                     
+                    <!-- Registration Form Errors -->
                     {% if signup_form.non_field_errors %}
                         <div class="alert alert-danger">
                             {{ signup_form.non_field_errors }}
                         </div>
                     {% endif %}
                     
+                    <!-- Registration Form -->
                     <form method="post" action="{% url 'account_signup' %}" id="signup-form">
                         {% csrf_token %}
                         
+                        <!-- Username Field -->
                         <div class="mb-3">
                             <label for="{{ signup_form.username.id_for_label }}" class="form-label text-white">{{ signup_form.username.label }}</label>
                             {{ signup_form.username }}
@@ -95,6 +109,7 @@
                             {% endif %}
                         </div>
                         
+                        <!-- Email Field -->
                         <div class="mb-3">
                             <label for="{{ signup_form.email.id_for_label }}" class="form-label text-white">{{ signup_form.email.label }}</label>
                             {{ signup_form.email }}
@@ -105,6 +120,7 @@
                             {% endif %}
                         </div>
                         
+                        <!-- Password Field -->
                         <div class="mb-3">
                             <label for="{{ signup_form.password1.id_for_label }}" class="form-label text-white">{{ signup_form.password1.label }}</label>
                             {{ signup_form.password1 }}
@@ -115,6 +131,7 @@
                             {% endif %}
                         </div>
                         
+                        <!-- Password Confirmation Field -->
                         <div class="mb-3">
                             <label for="{{ signup_form.password2.id_for_label }}" class="form-label text-white">{{ signup_form.password2.label }}</label>
                             {{ signup_form.password2 }}
@@ -125,10 +142,12 @@
                             {% endif %}
                         </div>
                         
+                        <!-- Registration Submit Button -->
                         <div class="d-grid mb-3">
                             <button type="submit" class="btn btn-custom btn-lg" name="signup_submit">Sign Up</button>
                         </div>
                         
+                        <!-- Hidden Redirect Field -->
                         {% if redirect_field_value %}
                             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
                         {% endif %}
@@ -140,6 +159,7 @@
     </div>
 </div>
 
+<!-- Custom Styles for Authentication Forms -->
 <style>
 .form-control {
     background-color: #2c2c2c;

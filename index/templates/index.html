@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
+
+<!-- Preload hero image for better performance -->
 {% block preload %}
 <link rel="preload" as="image" href="/static/images/fist.jpg">
 {% endblock %} 
+
 {% block content %}
+<!-- Hero Section with Background Image -->
 <div class="home-hero">
   <div class="container mt-4">
+    <!-- Django Messages Display -->
     {% if messages %}
     {% for message in messages %}
     <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
@@ -14,13 +19,17 @@
     {% endfor %}
     {% endif %}
     
+    <!-- Main Hero Content -->
     <div class="hero-content">
       <h1 class="text-white display-4 fw-bold mb-4">STUDIO BAR</h1>
 
+      <!-- Hero Action Buttons -->
       <div class="mt-4 d-flex align-items-center justify-content-center">
+        <!-- View Events Button (always visible) -->
         <a href="{% url 'events' %}" class="btn btn-custom btn-lg"
           >View Events</a
         >
+        <!-- Join Us Button (only for guests) -->
         {% if not user.is_authenticated %}
         <div class="button-separator"></div>
         <a href="{% url 'combined_auth' %}" class="btn btn-custom btn-lg"
@@ -32,20 +41,24 @@
   </div>
 </div>
 
-<!-- Information section under hero -->
+<!-- Venue Information Section -->
 <div class="container my-5">
   <div class="row">
+    <!-- Left Column: Contact & Business Info -->
     <div class="col-md-6">
       <div class="info-section">
+        <!-- Venue Address & Contact -->
         <p class="text-white mb-3">
           71 Bread St, Penzance TR18 2EQ<br>
           info@studiobar.com
         </p>
 
+        <!-- Business Credit -->
         <p class="text-white mb-3">
           Studio Bar is programmed and produced by LNZRT
         </p>
 
+        <!-- Business Opportunities Link -->
         <p class="text-white mb-0">
           <a href="#" class="text-decoration-none" style="color: #dc3545"
             >Work With Us</a
@@ -53,8 +66,11 @@
         </p>
       </div>
     </div>
+    
+    <!-- Right Column: Hours & Community Links -->
     <div class="col-md-6">
       <div style="text-align: right" class="info-section">
+        <!-- Opening Hours -->
         <p class="text-white mb-3">
           Monday – Thursday: 5pm – 12am<br>
           Friday & Saturday : 5pm - 3am<br>
@@ -62,6 +78,7 @@
           <small class="text-white">*(All times subject to change)</small>
         </p>
 
+        <!-- Important Links -->
         <p class="text-white mb-2">
           <a href="#" class="text-decoration-none" style="color: #dc3545"
             >Accessibility</a
@@ -72,6 +89,7 @@
             >This Must Be For Your Community Fund</a
           >
         </p>
+        <!-- External Partner Link -->
         <p class="text-white mb-0">
           <a
             href="https://golowanfestival.org/"
@@ -85,24 +103,28 @@
   </div>
 </div>
 
-<!-- Subscribe form section -->
+<!-- Newsletter Subscription Section -->
 <div class="container mt-1 mb-5">
   <div class="row justify-content-center">
     <div class="col-md-8 col-lg-6">
       <div class="subscribe-section text-center" id="subscribe-section">
+        <!-- Newsletter Heading -->
         <h3 class="text-white mb-3">Subscribe</h3>
         <p class="text-white mb-4">
           Sign up to the Studio Bar newsletter for weekly news and first release
           tickets.
         </p>
 
+        <!-- Newsletter Subscription Form -->
         <form class="subscribe-form" id="subscribe-form">
           <div class="d-flex gap-2 mb-3">
+            <!-- Email Input Field -->
             <input
               type="email"
               class="form-control flex-grow-1"
               placeholder="email address"
               required />
+            <!-- Submit Button -->
             <button type="submit" class="btn btn-danger subscribe-btn">
               Sign Up
             </button>
@@ -113,16 +135,19 @@
   </div>
 </div>
 
+<!-- JavaScript for Newsletter Subscription -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // Get form and container elements
   const subscribeForm = document.getElementById('subscribe-form');
   const subscribeSection = document.getElementById('subscribe-section');
   
+  // Handle form submission
   if (subscribeForm && subscribeSection) {
     subscribeForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Replace the entire subscribe section content with thank you message
+      // Replace form with success message (demo functionality)
       subscribeSection.innerHTML = '<h2 class="text-white">Thank you for subscribing!</h2>';
     });
   }

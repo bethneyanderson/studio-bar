@@ -1,12 +1,17 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+
+{% block content %}
 <div class="container mt-4">
+  <!-- Page Header with Title and Admin Controls -->
   <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
+      <!-- Page Title -->
       <h1 style="color: #dc3545;">Events</h1>
       <p class="text-white">
         Check out our upcoming live music events and shows at Studio Bar
       </p>
     </div>
+    <!-- Staff-Only: Add New Event Button -->
     {% if user.is_staff %}
     <div>
       <a href="{% url 'create_event' %}" class="btn btn-warning">
@@ -16,27 +21,38 @@
     {% endif %}
   </div>
 
-  {% if messages %} {% for message in messages %}
+  <!-- Django Messages Display (Success, Error, etc.) -->
+  {% if messages %} 
+  {% for message in messages %}
   <div
     class="alert alert-{{ message.tags }} alert-dismissible fade show"
     role="alert">
     {{ message }}
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
   </div>
-  {% endfor %} {% endif %}   {% if events %}
+  {% endfor %} 
+  {% endif %}   
+
+  <!-- Events Display Section -->
+  {% if events %}
   <div class="row mt-4">
     {% for event in events %}
     <div class="col-md-6 mb-4">
+      <!-- Individual Event Card -->
       <div class="card bg-dark text-white h-100 event-card">
+        <!-- Event Image (clickable to view details) -->
         <a href="{% url 'event_detail' event.id %}" class="text-decoration-none">
           {% if event.image %}
           <img
             src="{{ event.image.url }}"
             class="card-img-top"
-            alt="{{ event.title }}" />
+            alt="{{ event.title }}">
           {% endif %}
         </a>
+        
+        <!-- Event Details -->
         <div class="card-body">
+          <!-- Event Title, Date, and Price (clickable to view details) -->
           <a href="{% url 'event_detail' event.id %}" class="text-decoration-none">
             <h5 class="card-title text-white">{{ event.title }}</h5>
             <p class="card-text text-white">{{ event.date|date:"F d, Y" }}</p>
@@ -45,6 +61,7 @@
             </p>
           </a>
 
+          <!-- Call-to-Action Button -->
           <div class="mt-3">
             <a href="{% url 'event_detail' event.id %}" class="btn btn-danger btn-sm book-tickets-btn">
               <i class="fas fa-ticket-alt"></i> Book Tickets
@@ -55,6 +72,8 @@
     </div>
     {% endfor %}
   </div>
+  
+  <!-- No Events State -->
   {% else %}
   <div class="row mt-4">
     <div class="col-12">
@@ -64,6 +83,7 @@
           There are currently no events scheduled. Check back soon or contact us
           for more information.
         </p>
+        <!-- Staff-Only: Create First Event Button -->
         {% if user.is_staff %}
         <hr>
         <p class="mb-0 text-dark">
