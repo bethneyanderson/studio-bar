@@ -65,11 +65,11 @@
                         </div>
                         
                         {% if redirect_field_value %}
-                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
                         {% endif %}
                     </form>
                     
-                    <hr class="my-4" />
+                    <hr class="my-4">
                     <div class="text-center">
                         <p class="mb-0">Already have an account? <a href="{% url 'account_login' %}" class="text-light">Sign in here</a></p>
                     </div>
