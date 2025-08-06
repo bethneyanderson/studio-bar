@@ -1,4 +1,8 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block preload %}
+<link rel="preload" as="image" href="/static/images/fist.jpg">
+{% endblock %} 
+{% block content %}
 <div class="home-hero">
   <div class="container mt-4">
     {% if messages %}
