@@ -1,5 +1,5 @@
 from django import forms
-from index.models import Event
+from .models import Event
 from artists.models import Artist
 
 class EventForm(forms.ModelForm):

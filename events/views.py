@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
-from index.models import Event
+from .models import Event
 from .forms import EventForm
 
 def is_admin(user):
