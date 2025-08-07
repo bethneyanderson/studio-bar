@@ -8,17 +8,7 @@
 {% block content %}
 <!-- Hero Section with Background Image -->
 <div class="home-hero">
-  <div class="container mt-4">
-    <!-- Django Messages Display -->
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-      {{ message }}
-      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    </div>
-    {% endfor %}
-    {% endif %}
-    
+  <div class="container mt-4">    
     <!-- Main Hero Content -->
     <div class="hero-content">
       <h1 class="text-white display-4 fw-bold mb-4">STUDIO BAR</h1>

@@ -14,29 +14,7 @@
     </div>
   </div>
 
-  {% if messages %} 
-  <div class="notifications-container">
-    {% for message in messages %}
-    <div class="alert alert-{{ message.tags }} studio-notification alert-dismissible fade show" role="alert">
-      <span class="message-icon">
-        {% if message.tags == 'success' %}
-          <i class="fas fa-check-circle"></i>
-        {% elif message.tags == 'error' or message.tags == 'danger' %}
-          <i class="fas fa-exclamation-circle"></i>
-        {% elif message.tags == 'warning' %}
-          <i class="fas fa-exclamation-triangle"></i>
-        {% elif message.tags == 'info' %}
-          <i class="fas fa-info-circle"></i>
-        {% else %}
-          <i class="fas fa-bell"></i>
-        {% endif %}
-      </span>
-      {{ message }}
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    {% endfor %}
-  </div>
-  {% endif %} {% if artists %}
+  {% if artists %}
   <div class="row mt-4">
     {% for artist in artists %}
     <div class="col-md-6 col-lg-4 mb-4">
