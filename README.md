@@ -91,6 +91,8 @@ User stories guided the setup of a Kanban board for streamlined task tracking. D
 - **Password Recovery**: Users can reset forgotten passwords through secure email verification
 - **Session Management**: Persistent login sessions with secure logout functionality
 
+![alt-text](readme-docs/Login.png)
+
 #### Event Management System
 
 - **Public Events Display**: All users can view upcoming events on the main events page
@@ -100,10 +102,14 @@ User stories guided the setup of a Kanban board for streamlined task tracking. D
   - Event pricing (displayed as "Free" for £0.00 events)
   - Event poster/promotional images
 - **Staff Event Management** (Admin Only):
+
   - Create new events with comprehensive form validation
   - Edit existing event details
   - Delete events with confirmation prompts
   - Upload event images with automatic file handling
+
+  ![alt-text](readme-docs/event-cards.png)
+  ![alt-text](readme-docs/create-event.png)
 
 #### Artist Management System (Staff Only)
 
@@ -115,6 +121,8 @@ User stories guided the setup of a Kanban board for streamlined task tracking. D
   - List of associated events
 - **CRUD Operations**: Full Create, Read, Update, Delete functionality for artists
 - **Artist-Event Relationships**: Events are linked to artists with foreign key relationships
+
+![alt-text](readme-docs/artists.png)
 
 #### Dynamic About Page
 
