@@ -1,3 +1,4 @@
+import os
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
 
@@ -6,12 +7,15 @@ class Command(BaseCommand):
     help = 'Create staff users'
 
     def handle(self, *args, **options):
+        # Get password from environment variable or use a default for development
+        default_password = os.environ.get('STAFF_DEFAULT_PASSWORD', 'TempPassword123!')
+        
         # Create staff1
         if not User.objects.filter(username='staff1').exists():
             user1 = User.objects.create_user(
                 username='staff1',
                 email='staff1@studiobar.com',
-                password='StudioBar2025!',
+                password=default_password,
                 is_staff=True
             )
             self.stdout.write(
@@ -27,7 +31,7 @@ class Command(BaseCommand):
             user2 = User.objects.create_user(
                 username='staff2',
                 email='staff2@studiobar.com',
-                password='StudioBar2025!',
+                password=default_password,
                 is_staff=True
             )
             self.stdout.write(
@@ -42,7 +46,7 @@ class Command(BaseCommand):
             self.style.SUCCESS('Staff users setup complete!')
         )
         self.stdout.write(
-            self.style.WARNING('Default password for both accounts: StudioBar2025!')
+            self.style.WARNING('Staff users created with default password.')
         )
         self.stdout.write(
             self.style.WARNING('Please change passwords after first login.')

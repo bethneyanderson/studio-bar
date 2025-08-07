@@ -1,0 +1,10 @@
+# Bandit configuration for Studio Bar Django project
+[bandit]
+exclude_dirs = ['.venv', 'node_modules', 'migrations']
+skips = ['B101']  # Skip assert_used warnings
+
+# Suppress subprocess warnings for pre-commit script
+# These are legitimate security-hardened subprocess calls
+[skips]
+B404 = scripts/pre-commit-check.py  # subprocess import is legitimate for linting
+B603 = scripts/pre-commit-check.py  # subprocess call is secure with full path

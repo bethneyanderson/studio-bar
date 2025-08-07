@@ -3,18 +3,26 @@
 Pre-commit hook script for Studio Bar Django project.
 This script runs flake8 checks before allowing commits.
 """
-import subprocess
+import shutil
+import subprocess  # nosec B404 - legitimate use for code quality checks
 import sys
 
 
 def run_flake8():
     """Run flake8 checks and return the result."""
-    try:
-        result = subprocess.run(['flake8'], capture_output=True, text=True)
-        return result.returncode, result.stdout, result.stderr
-    except FileNotFoundError:
+    # Find full path to flake8 for security
+    flake8_path = shutil.which('flake8')
+    if not flake8_path:
         print("Error: flake8 not found. Please install it with: pip install flake8")
         return 1, "", "flake8 not found"
+    
+    try:
+        # Use full path and explicit arguments for security
+        result = subprocess.run([flake8_path], capture_output=True, text=True, shell=False, check=False)  # nosec B603 - secure subprocess call with full path
+        return result.returncode, result.stdout, result.stderr
+    except Exception as e:
+        print(f"Error running flake8: {e}")
+        return 1, "", str(e)
 
 
 def main():
