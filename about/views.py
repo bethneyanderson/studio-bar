@@ -38,4 +38,4 @@ def edit_about_view(request):
         form = AboutForm(instance=about_content)
 
     return render(request, 'about/edit_about.html',
-                  {'form': form, 'about': about_content})
+                {'form': form, 'about': about_content})

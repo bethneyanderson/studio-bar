@@ -48,8 +48,7 @@ class About(models.Model):
         verbose_name_plural = "About Page Content"
 
     def __str__(self):
-        return f"About Page (Last updated: {
-            self.updated_at.strftime('%Y-%m-%d %H:%M')})"
+        return f"About Page (Last updated: {self.updated_at.strftime('%Y-%m-%d %H:%M')})"
 
     def save(self, *args, **kwargs):
         # Ensure only one About instance exists
