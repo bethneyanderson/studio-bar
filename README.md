@@ -398,3 +398,29 @@ The AI assistance was particularly valuable in:
 - Establishing proper database relationships and model design
 - Implementing code quality automation with flake8
 - Comprehensive documentation and README creation
+
+## Testing
+
+The site was tested manually and using automated tests.
+
+### Manual Testing
+
+Manual testing was performed on the site to ensure that all features worked as expected. This included testing the following:
+
+| Test                                      | Expected Result | Actual Result |
+| ----------------------------------------- | --------------- | ------------- |
+| Click Home menu                           | success         | success       |
+| Click About menu                          | success         | success       |
+| Click Events menu                         | success         | success       |
+| Click Register                            | success         | success       |
+| Click Login                               | success         | success       |
+| Click Logout                              | success         | success       |
+| Click individual event post               | success         | success       |
+| Click back to event list                  | success         | success       |
+| Create, edit, delete events (staff only)  | success         | success       |
+| Create, edit, delete artists (staff only) | success         | success       |
+| Register new account                      | success         | success       |
+| Access admin interface                    | success         | success       |
+| Responsivity across devices               | success         | success       |
+| Open new page from social media links     | success         | success       |
+| Django notification system                | success         | success       |
