@@ -410,8 +410,9 @@ Manual testing was performed on the site to ensure that all features worked as e
 | Test                                      | Expected Result | Actual Result |
 | ----------------------------------------- | --------------- | ------------- |
 | Click Home menu                           | success         | success       |
-| Click About menu                          | success         | success       |
 | Click Events menu                         | success         | success       |
+| Click About menu                          | success         | success       |
+| Click Artists menu                        | success         | success       |
 | Click Register                            | success         | success       |
 | Click Login                               | success         | success       |
 | Click Logout                              | success         | success       |
