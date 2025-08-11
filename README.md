@@ -6,37 +6,37 @@ Live link:
 
 ## Table of Contents
 
-1. **UX Design**
+1. **[UX Design](#ux-design)**
 
-   - I. Colour Scheme
-   - II. Typography
-   - III. Imagery
-   - IV. User Stories and Kanban Board
-   - V. Wireframes
-   - VI. ERD Diagram
+   - I. [Colour Scheme](#colour-scheme)
+   - II. [Typography](#typography)
+   - III. [Imagery](#imagery)
+   - IV. [User Stories and Kanban Board](#user-stories-and-kanban-board)
+   - V. [Wireframes](#wireframes)
+   - VI. [ERD Diagram](#erd-diagram)
 
-2. **Features**
+2. **[Features](#features)**
 
-   - I. Existing Features
-   - II. Features Left to Implement
+   - I. [Existing Features](#existing-features)
+   - II. [Features Left to Implement](#features-left-to-implement)
 
-3. **Technologies Used**
+3. **[Technologies Used](#technologies-used)**
 
-   - I. Backend Framework & Core Technologies
-   - II. Database & Data Management
-   - III. User Authentication & Account Management
-   - IV. Content Management & Rich Text
-   - V. Frontend Technologies
-   - VI. Static Files & Media Management
-   - VII. Development & Deployment Tools
-   - VIII. Code Quality & Development Tools
-   - IX. Security & Performance
-   - X. Testing & Quality Assurance
-   - XI. How AI Was Used
+   - I. [Backend Framework & Core Technologies](#backend-framework--core-technologies)
+   - II. [Database & Data Management](#database--data-management)
+   - III. [User Authentication & Account Management](#user-authentication--account-management)
+   - IV. [Content Management & Rich Text](#content-management--rich-text)
+   - V. [Frontend Technologies](#frontend-technologies)
+   - VI. [Static Files & Media Management](#static-files--media-management)
+   - VII. [Development & Deployment Tools](#development--deployment-tools)
+   - VIII. [Code Quality & Development Tools](#code-quality--development-tools)
+   - IX. [Security & Performance](#security--performance)
+   - X. [Testing & Quality Assurance](#testing--quality-assurance)
+   - XI. [How AI Was Used](#how-ai-was-used)
 
-4. **Testing**
+4. **[Testing](#testing)**
 
-   - I. Manual Testing
+   - I. [Manual Testing](#manual-testing)
    - II. Automated Testing
    - III. Code Validation
    - IV. Lighthouse Testing
@@ -425,3 +425,35 @@ Manual testing was performed on the site to ensure that all features worked as e
 | Responsivity across devices               | success         | success       |
 | Open new page from social media links     | success         | success       |
 | Django notification system                | success         | success       |
+
+### Automated Testing
+
+Automated tests were written using the Django test framework. These tests were run using the python manage.py test command and tested the following:
+
+The home page loads successfully.
+The event detail page loads successfully.
+The about page loads successfully.
+The events form submits successfully.
+The login form submits successfully.
+
+### Code Validation
+
+The code was validated using the following tools:
+
+- HTML was validated using the W3C Markup Validation Service.
+
+No errors were shown, only some info.
+
+![alt-text](readme-docs/html-info.png)
+
+![alt-text](readme-docs/html-no-errors.png)
+
+- CSS was validated using the W3C CSS Validation Service.
+
+No errors were found in the CSS validation.
+
+![alt-text](readme-docs/css-test.png)
+
+- Python was validated using the CI Python Linter.
+
+No errors were found in the Python validation indicating that the code is PEP8 compliant.
