@@ -33,13 +33,17 @@ jobs:
           # Exit-zero treats all errors as warnings
           flake8 . --count --exit-zero --max-complexity=10 --statistics
 
+      - name: Setup database
+        run: |
+          python manage.py migrate
+
       - name: Run Django tests
         run: |
           python manage.py test
 
-      - name: Check Django migrations
+      - name: Check for new migrations in project apps
         run: |
-          python manage.py makemigrations --check --dry-run
+          python manage.py makemigrations --check --dry-run about artists events index
 
   security:
     runs-on: ubuntu-latest
