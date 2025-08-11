@@ -2,7 +2,7 @@
 
 A sleek web app for Studio Bar, showcasing live events and underground music. Events are stored in a database and can be easily added, updated, or deleted through the admin interface.
 
-Live link:
+Live link: [Studio Bar](https://studio-bar-350deffff04b.herokuapp.com/)
 
 ## Table of Contents
 
@@ -37,15 +37,15 @@ Live link:
 4. **[Testing](#testing)**
 
    - I. [Manual Testing](#manual-testing)
-   - II. Automated Testing
-   - III. Code Validation
-   - IV. Lighthouse Testing
+   - II. [Automated Testing](#automated-testing)
+   - III. [Code Validation](#code-validation)
+   - IV. [Lighthouse Testing](#lighthouse-testing)
 
-5. **Deployment**
+5. **[Deployment](#deployment)**
 
-6. **Credits and Acknowledgements**
-   - I. Content
-   - II. Media
+6. **[Credits and Acknowledgements](#credits-and-acknowledgements)**
+   - I. [Content](#content)
+   - II. [Media](#media)
 
 ## UX Design
 
@@ -53,7 +53,7 @@ Live link:
 
 ![Studio Bar Color Palette showing black, red and white theme colors](readme-docs/AdobeColor-My%20Color%20Theme.jpeg)
 
-The site's colour scheme uses black, red, and white to reflect Studio Bar's bold, pared-down aesthetic. Black provides depth and atmosphere, red adds contrast and
+The site's colour scheme uses black, red, and white to reflect Studio Bar's bold, pared-down aesthetic. Black provides depth and atmosphere, red adds contrast and energy, while white ensures clean readability and balance.
 
 ### Typography
 
@@ -80,6 +80,8 @@ User stories guided the setup of a Kanban board for streamlined task tracking. D
 
 ![Studio Bar Entity Relationship Diagram showing database structure](readme-docs/studio-bar-erd.png)
 
+---
+
 ## Features
 
 ### Existing Features
@@ -91,7 +93,7 @@ User stories guided the setup of a Kanban board for streamlined task tracking. D
 - **Password Recovery**: Users can reset forgotten passwords through secure email verification
 - **Session Management**: Persistent login sessions with secure logout functionality
 
-![alt-text](readme-docs/Login.png)
+![Studio Bar login and registration page interface](readme-docs/Login.png)
 
 #### Event Management System
 
@@ -108,8 +110,8 @@ User stories guided the setup of a Kanban board for streamlined task tracking. D
   - Delete events with confirmation prompts
   - Upload event images with automatic file handling
 
-  ![alt-text](readme-docs/event-cards.png)
-  ![alt-text](readme-docs/create-event.png)
+  ![Studio Bar event cards displaying upcoming events](readme-docs/event-cards.png)
+  ![Studio Bar create event form interface for staff](readme-docs/create-event.png)
 
 #### Artist Management System (Staff Only)
 
@@ -122,7 +124,7 @@ User stories guided the setup of a Kanban board for streamlined task tracking. D
 - **CRUD Operations**: Full Create, Read, Update, Delete functionality for artists
 - **Artist-Event Relationships**: Events are linked to artists with foreign key relationships
 
-![alt-text](readme-docs/artists.png)
+![Studio Bar artists page showing artist profiles and management interface](readme-docs/artists.png)
 
 #### Dynamic About Page
 
@@ -209,6 +211,8 @@ User stories guided the setup of a Kanban board for streamlined task tracking. D
 - **Venue Management**: Multiple venue support with location-specific events
 - **Payment Integration**: Direct ticket sales through the platform
 - **Mobile App**: Companion mobile application for enhanced user experience
+
+---
 
 ## Technologies Used
 
@@ -399,6 +403,8 @@ The AI assistance was particularly valuable in:
 - Implementing code quality automation with flake8
 - Comprehensive documentation and README creation
 
+---
+
 ## Testing
 
 The site was tested manually and using automated tests.
@@ -444,9 +450,9 @@ The code was validated using the following tools:
 
 No errors were shown, only some info.
 
-![alt-text](readme-docs/html-info.png)
+![HTML validation info messages from W3C validator](readme-docs/html-info.png)
 
-![alt-text](readme-docs/html-no-errors.png)
+![HTML validation showing no errors found](readme-docs/html-no-errors.png)
 
 - CSS was validated using the W3C CSS Validation Service.
 
@@ -454,6 +460,120 @@ No errors were found in the CSS validation.
 
 ![alt-text](readme-docs/css-test.png)
 
+Some warnings were triggered due to Bootstrap and the use of CSS variables—these are expected and non-critical. Static validators can’t fully check dynamic properties, and some buttons intentionally share background and border colors for design consistency.
+
+![alt-text](readme-docs/css-warnings.png)
+
 - Python was validated using the CI Python Linter.
 
 No errors were found in the Python validation indicating that the code is PEP8 compliant.
+
+### LightHouse Testing
+
+The site was tested using Google LightHouse to check performance, accessibility, best practices, and SEO.
+
+The results were as follows:
+
+![Google Lighthouse performance, accessibility, best practices, and SEO scores](readme-docs/lighthouse.png)
+
+---
+
+## Deployment
+
+The Studio Bar application is deployed on Heroku with continuous deployment from the main branch, enabling live testing throughout development.
+
+### Environment Configuration
+
+Heroku is configured with the following environment variables, replacing those stored locally in `env.py` (excluded from version control for security):
+
+| Variable       | Purpose                      | Source                       |
+| -------------- | ---------------------------- | ---------------------------- |
+| `DATABASE_URL` | PostgreSQL connection string | ElephantSQL hosted database  |
+| `SECRET_KEY`   | Django secret key            | Secure random string         |
+| `DEBUG`        | Debug mode setting           | Set to `False` in production |
+
+### Heroku Deployment Steps
+
+#### 1. Create Heroku Application
+
+1. Log into the [Heroku Dashboard](https://dashboard.heroku.com/)
+2. Click **New** → **Create new app**
+3. Choose a unique application name
+4. Select your preferred region
+5. Click **Create app**
+
+#### 2. Configure Environment Variables
+
+1. Navigate to **Settings** tab
+2. Click **Reveal Config Vars**
+3. Add the required environment variables:
+   - `DATABASE_URL`: Your PostgreSQL connection string
+   - `SECRET_KEY`: Your Django secret key
+   - `DEBUG`: Set to `False`
+
+#### 3. Connect GitHub Repository
+
+1. Go to the **Deploy** tab
+2. In **Deployment method**, select **GitHub**
+3. Connect your GitHub account if not already connected
+4. Search for and select your repository: `studio-bar`
+5. Choose the branch to deploy: `main`
+
+#### 4. Deploy Application
+
+**Option A: Automatic Deployment (Recommended)**
+
+1. In the **Automatic deploys** section
+2. Click **Enable Automatic Deploys**
+3. Every push to the main branch will trigger a new deployment
+
+**Option B: Manual Deployment**
+
+1. In the **Manual deploy** section
+2. Select the branch: `main`
+3. Click **Deploy Branch**
+
+#### 5. Launch Application
+
+1. Once deployment completes successfully
+2. Click **View** or **Open app**
+3. Your application will open in a new tab
+
+### Live Application
+
+🌐 **Live Site**: [Studio Bar on Heroku](https://studio-bar-350deffff04b.herokuapp.com/)
+
+### Deployment Requirements
+
+The following files are essential for successful Heroku deployment:
+
+- **`runtime.txt`**: Specifies Python version (`python-3.11.13`)
+- **`requirements.txt`**: Lists all Python dependencies
+- **`Procfile`**: Defines the application process type
+- **`settings.py`**: Configured for production environment
+
+### Troubleshooting Deployment
+
+If deployment fails, check the following:
+
+1. **View Logs**: `heroku logs --tail --app your-app-name`
+2. **Check Environment Variables**: Ensure all required config vars are set
+3. **Verify Dependencies**: All packages listed in `requirements.txt`
+4. **Database Migrations**: Run `heroku run python manage.py migrate --app your-app-name`
+5. **Static Files**: Ensure WhiteNoise is properly configured
+
+---
+
+## Credits and Acknowledgements
+
+- The project structure and some code snippets were inspired by the "I Think Therefore I Blog" project from the LMS.
+- The project was developed using the Django web framework.
+- The project was deployed on Heroku.
+
+#### Content
+
+The content for the site was sourced from official event pages and AI.
+
+#### Media
+
+The images used on the site were sourced from official event pages and AI.
