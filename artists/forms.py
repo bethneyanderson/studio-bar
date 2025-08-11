@@ -1,4 +1,5 @@
 from django import forms
+from django.core.exceptions import ValidationError
 from .models import Artist
 
 
@@ -17,7 +18,7 @@ class ArtistForm(forms.ModelForm):
             }),
             'bio': forms.Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': 'Artist biography',
+                'placeholder': 'Artist biography (max 500 words)',
                 'rows': 4
             }),
             'social_links': forms.URLInput(attrs={
@@ -31,3 +32,13 @@ class ArtistForm(forms.ModelForm):
             'bio': 'Biography',
             'social_links': 'Social Media Link'
         }
+
+    def clean_bio(self):
+        bio = self.cleaned_data.get('bio', '')
+        if bio:
+            word_count = len(bio.split())
+            if word_count > 500:
+                raise ValidationError(
+                    f'Biography must be 500 words or less. Current word count: {word_count}'
+                )
+        return bio
