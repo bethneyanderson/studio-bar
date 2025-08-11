@@ -220,32 +220,21 @@ User stories guided the setup of a Kanban board for streamlined task tracking. D
 
 #### Django 4.2.23
 
-- **Model-View-Template (MVT) Architecture**: Structured application design with clear separation of concerns
-- **Object-Relational Mapping (ORM)**: Database interactions through Django models with automatic SQL generation
-- **Django Admin Interface**: Built-in admin panel for content management with customized admin classes
-- **Authentication System**: Built-in user authentication with custom forms and views
-- **URL Routing**: Clean URL patterns with app-specific routing configurations
-- **Template System**: Dynamic HTML generation with Django template language
-- **Forms Framework**: Comprehensive form handling with validation and custom widgets
-- **Middleware Integration**: Security, session management, and custom middleware support
+- Model-View-Template (MVT) architecture with ORM database interactions
+- Built-in admin interface and authentication system
+- URL routing, template system, and forms framework
+- Security middleware and session management
 
 #### Python 3.11
 
-- **Core Programming Language**: Modern Python features and syntax
-- **Virtual Environment Support**: Isolated development environment management
-- **Package Management**: pip-based dependency management with requirements.txt
+- Core programming language with virtual environment support
+- Package management via pip and requirements.txt
 
 ### Database & Data Management
 
 #### PostgreSQL (Production)
 
-- **Primary Database**: Robust relational database for production deployment
-- **Connection Management**: Database URL configuration via dj-database-url
-- **Foreign Key Relationships**: Well-structured data relationships between models
-- **Migration System**: Automated database schema management through Django migrations
-
-#### Database Libraries
-
+- Primary relational database with automated schema migrations
 - **psycopg2-binary 2.9.10**: PostgreSQL adapter for Python/Django
 - **dj-database-url 0.5.0**: Database configuration from environment variables
 
@@ -253,122 +242,53 @@ User stories guided the setup of a Kanban board for streamlined task tracking. D
 
 #### Django Allauth 0.54.0
 
-- **Complete Authentication Solution**: Registration, login, logout, password management
-- **Email Integration**: Email verification and password reset functionality
-- **Custom Forms**: Customized authentication forms for better user experience
-- **Social Authentication Ready**: Framework for potential social login integration
-- **Account Management**: User profile and session management
+- Complete authentication solution with email integration
+- Custom forms and social authentication framework
+- User profile and session management
 
-### Content Management & Rich Text
+### Content Management
 
 #### Django Summernote 0.8.20.0
 
-- **WYSIWYG Editor Integration**: Rich text editing capabilities for content management
-- **Media Upload Support**: Image and file upload functionality within rich text
-- **Admin Integration**: Seamless integration with Django admin interface
-- **Customizable Interface**: Configurable editor settings and styling options
+- WYSIWYG rich text editor with media upload support
+- Seamless Django admin integration
 
 ### Frontend Technologies
 
 #### Bootstrap 5.3.7
 
-- **Responsive Framework**: Mobile-first responsive design components
-- **Grid System**: Flexible layout system for all device sizes
-- **Component Library**: Pre-built UI components (cards, forms, navigation, buttons)
-- **Utility Classes**: Comprehensive utility classes for styling and layout
-- **JavaScript Components**: Interactive components like collapsible navigation
+- Responsive framework with grid system and component library
+- Interactive JavaScript components for navigation and UI
 
-#### HTML5 & CSS3
+#### HTML5, CSS3 & JavaScript
 
-- **Semantic HTML**: Proper document structure and accessibility features
-- **Custom CSS**: Brand-specific styling with CSS custom properties
-- **Responsive Design**: Media queries and flexible layouts
-- **CSS Grid & Flexbox**: Modern layout techniques for complex designs
-
-#### JavaScript (Vanilla)
-
-- **DOM Manipulation**: Interactive user interface elements
-- **Form Enhancement**: Client-side form validation and user feedback
-- **Bootstrap Integration**: JavaScript for Bootstrap component functionality
-
-#### Google Fonts
-
-- **Rye Font Family**: Custom typography for brand identity and character
-- **Web Font Optimization**: Efficient font loading and display
+- Semantic HTML structure with custom CSS styling
+- Vanilla JavaScript for DOM manipulation and form enhancement
+- **Google Fonts (Rye)**: Custom typography for brand identity
 
 ### Static Files & Media Management
 
 #### WhiteNoise 6.6.0
 
-- **Static File Serving**: Efficient static file serving in production
-- **Compression**: Automatic static file compression for performance
-- **Django Integration**: Seamless integration with Django's static files system
-- **Manifest Storage**: Static file versioning and caching
+- Static file serving with compression and caching
+- **Pillow 11.3.0**: Image processing and validation
 
-#### Pillow 11.3.0
+### Deployment & Infrastructure
 
-- **Image Processing**: Python Imaging Library for image upload and manipulation
-- **Format Support**: Wide range of image format support (JPEG, PNG, etc.)
-- **Image Validation**: Automatic image validation for security
-- **Django ImageField Support**: Backend for Django's ImageField functionality
+#### Heroku Platform
 
-### Development & Deployment Tools
+- Cloud deployment with PostgreSQL database
+- **Gunicorn 20.1.0**: Production WSGI HTTP server
+- **runtime.txt**: Python version specification (3.11.13)
 
-#### Gunicorn 20.1.0
+### Development Tools
 
-- **WSGI HTTP Server**: Production-ready Python web server
-- **Heroku Compatibility**: Optimized for Heroku deployment
-- **Process Management**: Multi-worker process handling for scalability
-- **Django Integration**: Seamless Django application serving
+#### Code Quality
 
-#### Version Control & CI/CD
-
-- **Git**: Source code version control with GitHub repository
-- **GitHub Actions**: Automated testing and continuous integration
-- **Heroku Deployment**: Cloud-based application deployment and hosting
-
-### Code Quality & Development Tools
-
-#### flake8 7.0.0 + flake8-django 1.4.0
-
-- **Code Quality Automation**: Comprehensive Python linting and style checking
-- **Django-Specific Rules**: Specialized linting for Django best practices
-- **PEP 8 Compliance**: Automatic Python style guide enforcement
-- **VS Code Integration**: Real-time linting feedback during development
-- **CI/CD Integration**: Automated code quality checks in deployment pipeline
-
-#### Development Environment
-
-- **VS Code**: Primary development environment with extensions
-- **Make**: Build automation and development workflow commands
-- **Virtual Environment**: Isolated Python environment for development
-- **Environment Variables**: Secure configuration management
-
-### Security & Performance
-
-#### Security Features
-
-- **CSRF Protection**: Cross-Site Request Forgery protection enabled
-- **SQL Injection Prevention**: ORM-based database queries
-- **User Authentication**: Secure login/logout with session management
-- **Staff Authorization**: Role-based access control for admin features
-- **Secure Headers**: Security middleware for HTTP headers
-
-#### Performance Optimization
-
-- **Static File Compression**: WhiteNoise compression for faster loading
-- **Database Optimization**: Efficient queries with select_related()
-- **Image Optimization**: Automatic image processing and validation
-- **Caching Strategy**: Django's built-in caching framework integration
-
-### Testing & Quality Assurance
-
-#### Built-in Testing Framework
-
-- **Django TestCase**: Unit testing framework for models, views, and forms
-- **Test Database**: Isolated testing environment with temporary database
-- **Coverage Analysis**: Code coverage tracking for comprehensive testing
-- **GitHub Actions**: Automated testing on push and pull requests
+- **flake8 7.0.0 + flake8-django 1.4.0**: Python linting and Django best practices
+- **VS Code**: Primary development environment
+- **Git & GitHub**: Version control and repository management
+- **GitHub Actions**: Continuous integration and automated testing
 
 ### How AI Was Used
 
@@ -458,11 +378,11 @@ No errors were shown, only some info.
 
 No errors were found in the CSS validation.
 
-![alt-text](readme-docs/css-test.png)
+![CSS validator showing no errors](readme-docs/css-test.png)
 
 Some warnings were triggered due to Bootstrap and the use of CSS variables—these are expected and non-critical. Static validators can’t fully check dynamic properties, and some buttons intentionally share background and border colors for design consistency.
 
-![alt-text](readme-docs/css-warnings.png)
+![CSS validator showing warnings due to Bootstrap use](readme-docs/css-warnings.png)
 
 - Python was validated using the CI Python Linter.
 
