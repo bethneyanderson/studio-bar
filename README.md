@@ -172,6 +172,46 @@ User stories guided the setup of a Kanban board for streamlined task tracking. D
 - **Security Features**: CSRF protection, secure authentication, and staff-only route protection
 - **SEO Optimization**: Proper meta tags, semantic HTML structure, and accessibility features
 
+#### CRUD Functionality & Staff Workflow
+
+The application implements a comprehensive CRUD (Create, Read, Update, Delete) system with role-based access control:
+
+**Prerequisites for CRUD Operations:**
+
+- User must be logged in with staff member privileges
+- All CRUD operations are restricted to staff users only through Django's authentication system
+
+**Artist Management Workflow:**
+
+1. **Create Artists First**: Staff members must add artists to the database before creating events
+2. **Artist CRUD Operations**:
+   - **Create**: Add new artists with name, genre, biography, and social media links
+   - **Read**: View all artists and their detailed profiles
+   - **Update**: Edit existing artist information and biographies
+   - **Delete**: Remove artists from the database (with confirmation prompts)
+
+**Event Management Workflow:**
+
+1. **Artist Selection**: When creating events, staff can select from existing artists in the database
+2. **Event CRUD Operations**:
+   - **Create**: Add new events with title, date, description, pricing, and image uploads
+   - **Read**: View all events in both public and management interfaces
+   - **Update**: Modify event details, including changing assigned artists
+   - **Delete**: Remove events with proper confirmation to prevent accidental deletion
+
+**Database Relationships:**
+
+- Events have a foreign key relationship with Artists (many-to-one)
+- This ensures data integrity and prevents orphaned records
+- Staff can easily reassign events to different artists through the edit interface
+
+**Security Implementation:**
+
+- All CRUD views use Django's `@login_required` and staff permission decorators
+- Form validation prevents invalid data entry
+- CSRF protection on all form submissions
+- Success/error messages provide user feedback for all operations
+
 #### Navigation & User Experience
 
 - **Intuitive Menu Structure**: Clear navigation between Home, Events, About, and staff sections
@@ -331,26 +371,17 @@ The site was tested manually and using automated tests.
 
 ### Manual Testing
 
-Manual testing was performed on the site to ensure that all features worked as expected. This included testing the following:
+Manual testing was performed on the site to ensure that all user stories were successfully implemented and working as expected:
 
-| Test                                      | Expected Result | Actual Result |
-| ----------------------------------------- | --------------- | ------------- |
-| Click Home menu                           | success         | success       |
-| Click Events menu                         | success         | success       |
-| Click About menu                          | success         | success       |
-| Click Artists menu                        | success         | success       |
-| Click Register                            | success         | success       |
-| Click Login                               | success         | success       |
-| Click Logout                              | success         | success       |
-| Click individual event post               | success         | success       |
-| Click back to event list                  | success         | success       |
-| Create, edit, delete events (staff only)  | success         | success       |
-| Create, edit, delete artists (staff only) | success         | success       |
-| Register new account                      | success         | success       |
-| Access admin interface                    | success         | success       |
-| Responsivity across devices               | success         | success       |
-| Open new page from social media links     | success         | success       |
-| Django notification system                | success         | success       |
+| User Story                                                                                                                                                       | Expected Result                                                                                    | Actual Result |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ------------- |
+| **As a site visitor, I want to navigate easily using a site-wide navbar, So that I can access different sections efficiently.**                                  | Navigation menu allows smooth access to Home, Events, About, and Artists sections                  | Success       |
+| **As an admin user, I want to add or edit the About section text, So that I can keep site information current.**                                                 | Staff users can edit About page content through admin interface with changes reflected immediately | Success       |
+| **As an event organizer or admin, I want to add new events to the site, So that users can discover and attend them.**                                            | Staff users can create new events with all required details, images, and form validation           | Success       |
+| **As an admin user, I want to edit or remove events from the public-facing site, So that I can manage listings without going into the backend.**                 | Staff users can edit and delete events directly from the public interface with proper confirmation | Success       |
+| **As a site visitor, I want to enter my email into a subscription form, so that I feel like I'm signing up to hear more—even if it's just for show.**            | Users can register for accounts and receive system notifications for engagement                    | Success       |
+| **As a site visitor, I want to open a detailed view of a specific listing, So that I can learn more about what it offers and decide whether to engage with it.** | Clicking on events opens detailed view with full information, artist details, and pricing          | Success       |
+| **As a new user, I want to register for an account, So that I can access personalized features or manage event listings.**                                       | New users can register successfully with proper validation and login immediately after             | Success       |
 
 ### Automated Testing
 
